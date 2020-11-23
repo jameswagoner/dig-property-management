@@ -19,5 +19,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::view('dashboard', 'dashboard')->name('dashboard');
 
-    Route::resource('tasks', TasksController::class);
+    Route::view('tasks', 'tasks')->name('tasks');
 });

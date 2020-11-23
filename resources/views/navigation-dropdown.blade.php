@@ -17,7 +17,7 @@
                         Dashboard
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('tasks.index') }}" :active="request()->routeIs('tasks.*')">
+                    <x-jet-nav-link href="{{ route('tasks') }}" :active="request()->routeIs('tasks')">
                         Tasks
                     </x-jet-nav-link>
 
