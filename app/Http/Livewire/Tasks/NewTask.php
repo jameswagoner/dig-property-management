@@ -24,7 +24,7 @@ class NewTask extends Component
     {
         $data = $this->validate($this->rules);
 
-        $saved = Task::create($this->validate($this->rules));
+        $saved = Task::create($this->validate());
 
         if ($saved) $this->open = false;
     }
