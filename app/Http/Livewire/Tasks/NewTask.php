@@ -24,12 +24,7 @@ class NewTask extends Component
     {
         $data = $this->validate($this->rules);
 
-        $saved = Task::create([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'unit' => $data['unit'],
-            'priority' => $data['priority']
-        ]);
+        $saved = Task::create($this->validate($this->rules));
 
         if ($saved) $this->open = false;
     }
