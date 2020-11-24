@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class NewTask extends Component
 {
+    public $open = false;
     public $title;
     public $description;
     public $unit;
@@ -23,12 +24,14 @@ class NewTask extends Component
     {
         $data = $this->validate($this->rules);
 
-        Task::create([
+        $saved = Task::create([
             'title' => $data['title'],
             'description' => $data['description'],
             'unit' => $data['unit'],
             'priority' => $data['priority']
         ]);
+
+        if ($saved) $this->open = false;
     }
 
     /**
