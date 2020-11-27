@@ -1,4 +1,8 @@
 <div class="space-y-4">
+    <div>
+        {{ $tasks->links() }}
+    </div>
+
     <div class="bg-white shadow-xl sm:rounded-lg">
         <ul class="relative z-0 divide-y divide-gray-200 border-b border-gray-200">
         @foreach($tasks as $task)
@@ -11,8 +15,7 @@
                                 <span class="h-2 w-2 bg-{{ $task->status_color }}-400 rounded-full"></span>
                             </span>
                             <span class="block">
-                                <h2 class="text-sm font-medium leading-5">
-                                    <span class="absolute inset-0"></span>
+                                <h2 class="text-sm font-bold leading-5">
                                     {{ $task->title }}
                                 </h2>
                             </span>
@@ -34,12 +37,33 @@
                     </div>
                     <!-- Task meta info -->
                     <div class="hidden sm:flex flex-col flex-shrink-0 items-end space-y-3">
+                        <p class="flex items-center text-sm space-x-2">
+                            <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                            <span>{{ auth()->user()->name }}</span>
+                        </p>
                         <p class="flex text-gray-500 text-sm leading-5 space-x-2">
-                            <span>{{ $task->status }}</span>
+                            <span class="flex space-x-1">
+                                <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>{{ $task->status }}</span>
+                            </span>
                             <span>&middot;</span>
-                            <span>{{ $task->priority }}</span>
+                            <span class="flex space-x-1">
+                                <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>{{ $task->priority }}</span>
+                            </span>
                             <span>&middot;</span>
-                            <span>Reported {{ $task->created_at->diffForHumans() }}</span>
+                            <span class="flex space-x-1">
+                                <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>{{ $task->created_at->diffForHumans() }}</span>
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -47,6 +71,7 @@
         @endforeach
         </ul>
     </div>
+
     <div>
         {{ $tasks->links() }}
     </div>
