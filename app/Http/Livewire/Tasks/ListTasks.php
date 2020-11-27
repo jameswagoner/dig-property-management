@@ -7,10 +7,16 @@ use Livewire\Component;
 
 class ListTasks extends Component
 {
+    public $listeners = [
+        'task-saved' => 'render'
+    ];
+
     public function render()
     {
         return view('livewire.tasks.list', [
-            'tasks' => Task::all()
+            'tasks' => Task::orderByDesc('created_at')->get()
         ]);
     }
+
+
 }

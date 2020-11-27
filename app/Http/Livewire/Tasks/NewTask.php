@@ -28,6 +28,7 @@ class NewTask extends Component
 
         if ($saved) {
             $this->open = false;
+            $this->emit('task-saved');
             $this->dispatchBrowserEvent('toast', 'Task was saved!');
         }
     }
