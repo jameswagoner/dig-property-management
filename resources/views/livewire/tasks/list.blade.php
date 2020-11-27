@@ -7,15 +7,15 @@
                     <!-- Task summary -->
                     <div class="min-w-0 space-y-3">
                         <div class="flex items-center space-x-3">
-                        <span aria-label="Running" class="h-4 w-4 bg-green-100 rounded-full flex items-center justify-center">
-                        <span class="h-2 w-2 bg-green-400 rounded-full"></span>
-                        </span>
+                            <span class="h-4 w-4 bg-{{ $task->status_color }}-100 rounded-full flex items-center justify-center">
+                                <span class="h-2 w-2 bg-{{ $task->status_color }}-400 rounded-full"></span>
+                            </span>
                             <span class="block">
-                            <h2 class="text-sm font-medium leading-5">
-                                <span class="absolute inset-0"></span>
-                                {{ $task->title }}
-                            </h2>
-                        </span>
+                                <h2 class="text-sm font-medium leading-5">
+                                    <span class="absolute inset-0"></span>
+                                    {{ $task->title }}
+                                </h2>
+                            </span>
                         </div>
                         <div class="relative group flex items-center space-x-2.5">
                             <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
