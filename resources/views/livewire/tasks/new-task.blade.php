@@ -5,7 +5,7 @@
         </svg>
         New Task
     </button>
-    <section x-on:click.away="slideOver = false" class="absolute z-10 inset-y-0 right-0 pl-10 max-w-full flex">
+    <section x-on:click.away="slideOver = false" class="fixed z-10 inset-y-0 right-0 pl-10 max-w-full flex">
         <div x-show="open" x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="w-screen max-w-md" style="display: none;">
             <div class="h-full divide-y divide-gray-200 flex flex-col bg-white shadow-xl">
                 <div class="flex-1 h-0 overflow-y-auto">
