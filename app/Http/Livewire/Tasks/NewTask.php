@@ -26,7 +26,10 @@ class NewTask extends Component
 
         $saved = Task::create($this->validate());
 
-        if ($saved) $this->open = false;
+        if ($saved) {
+            $this->open = false;
+            $this->dispatchBrowserEvent('toast', 'Task was saved!');
+        }
     }
 
     /**

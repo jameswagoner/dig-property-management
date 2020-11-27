@@ -37,6 +37,8 @@
 
         @stack('modals')
 
+        <x-notifications.toast />
+
         @livewireScripts
     </body>
 </html>
