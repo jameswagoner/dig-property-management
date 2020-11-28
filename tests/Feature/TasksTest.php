@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Str;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -27,20 +28,20 @@ class TasksTest extends TestCase
     {
         $this->actingAs($this->user)->get('/tasks')
             ->assertSeeLivewire('tasks.new-task')
-            ->assertSeeLivewire('tasks.show');
+            ->assertSeeLivewire('tasks.list-tasks');
     }
 
     public function test_create_task()
     {
-        $title = $this->faker->sentence;
+        $task = Task::factory()->make();
 
         Livewire::test('tasks.new-task')
-            ->set('title', $title)
-            ->set('description', $this->faker->paragraph)
-            ->set('unit', $this->faker->buildingNumber)
-            ->set('priority', 'normal')
+            ->set('title', $task->title)
+            ->set('description', $task->description)
+            ->set('unit', $task->unit)
+            ->set('priority', Str::lower($task->priority))
             ->call('createTask');
 
-        $this->assertTrue(Task::where('title', $title)->exists());
+        $this->assertTrue(Task::where('title', $task->title)->exists());
     }
 }

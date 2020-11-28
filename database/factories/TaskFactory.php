@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class TaskFactory extends Factory
 {
