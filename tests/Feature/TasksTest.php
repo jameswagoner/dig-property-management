@@ -37,11 +37,11 @@ class TasksTest extends TestCase
 
         Livewire::test('tasks.new-task')
             ->set('title', $task->title)
+            ->set('property_id', $task->property_id)
             ->set('description', $task->description)
-            ->set('unit', $task->unit)
             ->set('priority', Str::lower($task->priority))
             ->call('createTask');
 
-        $this->assertTrue(Task::where('title', $task->title)->exists());
+        $this->assertDatabaseHas('tasks', ['title' => $task->title]);
     }
 }

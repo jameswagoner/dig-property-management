@@ -50,11 +50,11 @@
                                     @error('description') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
                                 </div>
                                 <div class="space-y-1">
-                                    <label for="task_unit" class="block text-sm font-medium leading-5 text-gray-900">
-                                        Unit
+                                    <label for="task_property" class="block text-sm font-medium leading-5 text-gray-900">
+                                        Property
                                     </label>
                                     <div class="relative rounded-md shadow-sm">
-                                        <input wire:model="unit" id="task_unit" class="form-input block w-full sm:text-sm sm:leading-5 transition ease-in-out duration-150" />
+                                        <input wire:model="property_id" id="task_property" class="form-input block w-full sm:text-sm sm:leading-5 transition ease-in-out duration-150" />
                                     </div>
                                     @error('unit') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
                                 </div>

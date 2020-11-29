@@ -12,6 +12,11 @@ class Task extends Model
 
     protected $guarded = [];
 
+    public function property()
+    {
+        return $this->belongsTo(Property::class);
+    }
+
     public function getTitleAttribute()
     {
         return Str::title($this->attributes['title']);

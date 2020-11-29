@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Property;
 use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
@@ -24,9 +25,9 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
+            'property_id' => Property::factory(),
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'unit' => $this->faker->buildingNumber . ' ' . Arr::random(['Mayse', 'Gilbert Ln']),
             'priority' => Arr::random(['low', 'normal', 'high', 'emergency']),
             'status' => Arr::random(['new', 'in-progress', 'completed'])
         ];

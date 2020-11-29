@@ -10,10 +10,10 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('property_id')->unsigned();
 
-            $table->string('title');
+            $table->string('title')->index();
             $table->text('description');
-            $table->string('unit');
             $table->enum('priority', ['low', 'normal', 'high', 'emergency'])->default('normal');
             $table->enum('status', ['new', 'in-progress', 'completed'])->default('new');
 

@@ -10,13 +10,13 @@ class NewTask extends Component
     public $open = false;
     public $title;
     public $description;
-    public $unit;
+    public $property_id;
     public $priority = 'normal';
 
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'unit' => 'required',
+        'property_id' => 'required|numeric|exists:App\Models\Property,id',
         'priority' => 'required'
     ];
 
