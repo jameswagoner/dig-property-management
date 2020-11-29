@@ -30,8 +30,16 @@
                     </header>
                     <div class="flex-1 flex flex-col justify-between">
                         <div class="px-4 bg-white divide-y divide-gray-200 sm:px-6">
-                            <div class="space-y-6 pt-6 pb-5">
-                                {{-- todo: fill out form elements --}}
+                            <div class="pt-6 pb-5">
+                                <div class="space-y-1">
+                                    <label for="property_nickname" class="block text-sm font-medium leading-5 text-gray-900">
+                                        Nickname for Property
+                                    </label>
+                                    <div class="relative rounded-md shadow-sm">
+                                        <input wire:model="nickname" id="property_nickname" class="form-input block w-full sm:text-sm sm:leading-5 transition ease-in-out duration-150" />
+                                    </div>
+                                    @error('nickname') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
+                                </div>
                             </div>
                         </div>
                     </div>

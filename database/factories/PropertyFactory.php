@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Property;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 class PropertyFactory extends Factory
 {
@@ -22,7 +23,7 @@ class PropertyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nickname' => $this->faker->buildingNumber . ' ' . Arr::random(['Mayse', 'Gilbert Ln']),
         ];
     }
 }
