@@ -1,0 +1,1 @@
+<livewire:properties.search-properties />
