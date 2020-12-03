@@ -8,7 +8,7 @@
         <div class="relative rounded-md shadow-sm">
             <input wire:model.debounce.500ms="query" wire:keydown.escape="clear" id="properties_search" class="form-input text-sm block w-full" autocomplete="off" />
             <span x-show="query" class="absolute inset-y-0 right-0 flex items-center pr-4">
-                <span wire:click="clear" class="cursor-pointer p-1 text-xl text-gray-500"> &times; </span>
+                <span wire:click="cancel" class="cursor-pointer p-1 text-xl text-gray-500"> &times; </span>
             </span>
         </div>
         <div x-show="open" class="absolute z-10 mt-1 w-full rounded-md bg-white shadow-lg">

@@ -11,20 +11,12 @@ class SearchProperties extends Component
     public $class;
     public $label;
     public $query;
-    public $properties;
+    public $properties = [];
     public $property;
 
-    public function mount()
+    public function cancel()
     {
-        $this->clear();
-    }
-
-    public function clear()
-    {
-        $this->open = false;
-        $this->query = null;
-        $this->property = null;
-        $this->properties = collect();
+        $this->reset('open', 'query', 'properties', 'property');
 
         $this->emitUp('propertySelected', null);
     }
@@ -41,8 +33,7 @@ class SearchProperties extends Component
         $this->property = $property;
         $this->query = $property->nickname;
 
-        $this->open = false;
-        $this->properties = collect();
+        $this->reset('open', 'properties');
 
         $this->emitUp('propertySelected', $property->id);
     }
