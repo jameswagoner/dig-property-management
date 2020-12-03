@@ -13,12 +13,19 @@ class NewTask extends Component
     public $property_id;
     public $priority = 'normal';
 
+    protected $listeners = ['propertySelected'];
+
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
         'property_id' => 'required|numeric|exists:App\Models\Property,id',
         'priority' => 'required'
     ];
+
+    public function propertySelected($id)
+    {
+        $this->property_id = $id;
+    }
 
     public function createTask()
     {

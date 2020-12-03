@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="space-y-1">
                                     <livewire:properties.search-properties :label="'Property'" />
-                                    @error('unit') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
+                                    @error('property_id') <p class="mt-2 text-sm text-red-500">{{ $message }}</p> @enderror
                                 </div>
                                 <div class="space-y-1">
                                     <label for="task_priority" class="block text-sm font-medium leading-5 text-gray-900">
