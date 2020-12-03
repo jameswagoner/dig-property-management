@@ -22,6 +22,13 @@ class NewTask extends Component
         'priority' => 'required'
     ];
 
+    public function cancel()
+    {
+        $this->reset('open', 'title', 'description', 'property_id', 'priority');
+
+        $this->resetValidation();
+    }
+
     public function propertySelected($id)
     {
         $this->property_id = $id;

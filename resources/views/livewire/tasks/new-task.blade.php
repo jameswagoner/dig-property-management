@@ -1,4 +1,4 @@
-<div x-data="{ open: $wire.entangle('open') }" x-on:keydown.window.escape="open = false">
+<div x-data="{ open: $wire.entangle('open') }" wire:keydown.window.escape="cancel">
     <button x-on:click="open = true" type="button" class="flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-sm uppercase tracking-widest text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150">
         <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd" />
@@ -15,7 +15,7 @@
                                 Create a New Task
                             </h2>
                             <div class="h-7 flex items-center">
-                                <button x-on:click="open = false" aria-label="Close panel" class="text-blue-200 hover:text-white focus:outline-none focus:shadow-outline-none transition ease-in-out duration-150">
+                                <button wire:click="cancel" aria-label="Close panel" class="text-blue-200 hover:text-white focus:outline-none focus:shadow-outline-none transition ease-in-out duration-150">
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" view-box="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" strokelinejoin="round" strokewidth="2" d="M6 18L18 6M6 6l12 12"/>
                                 </svg>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="flex-shrink-0 px-4 py-4 space-x-4 flex justify-end">
                 <span class="inline-flex rounded-md shadow-sm">
-                  <button x-on:click="open = false" type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                  <button wire:click="cancel" type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                     Cancel
                   </button>
                 </span>
