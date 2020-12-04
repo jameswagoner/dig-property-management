@@ -17,6 +17,10 @@
                         Dashboard
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('properties') }}" :active="request()->routeIs('properties')">
+                        Properties
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('tasks') }}" :active="request()->routeIs('tasks')">
                         Tasks
                     </x-jet-nav-link>
