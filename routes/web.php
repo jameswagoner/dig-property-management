@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TasksController;
+use App\Http\Livewire\Properties\NewProperty;
 use Illuminate\Support\Facades\Route;
 
 /*
