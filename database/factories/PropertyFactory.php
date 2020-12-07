@@ -23,7 +23,11 @@ class PropertyFactory extends Factory
     public function definition()
     {
         return [
-            'nickname' => $this->faker->buildingNumber . ' ' . Arr::random(['Mayse', 'Gilbert Ln']),
+            'nickname' => $this->faker->buildingNumber . ' ' . $this->faker->streetName . ' ' . $this->faker->streetSuffix,
+            'street_address' => $this->faker->streetAddress,
+            'city' => $this->faker->city,
+            'state' => $this->faker->state,
+            'postal_code' => $this->faker->postcode
         ];
     }
 }

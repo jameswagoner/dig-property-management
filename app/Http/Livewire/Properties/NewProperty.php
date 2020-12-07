@@ -8,9 +8,19 @@ use Livewire\Component;
 class NewProperty extends Component
 {
     public $nickname;
+    public $rent_amount;
+    public $street_address;
+    public $city;
+    public $state;
+    public $postal_code;
 
     public $rules = [
-        'nickname' => 'required'
+        'nickname' => 'required',
+        'rent_amount' => 'required|numeric',
+        'street_address' => 'required',
+        'city' => 'required',
+        'state' => 'required',
+        'postal_code' => 'required|numeric'
     ];
 
     public function createProperty()
@@ -18,9 +28,8 @@ class NewProperty extends Component
         $saved = Property::create($this->validate());
 
         if ($saved) {
-            $this->show = false;
-            $this->emit('property-saved');
             $this->dispatchBrowserEvent('toast', 'Property was saved!');
+            $this->redirectRoute('properties.list');
         }
     }
 

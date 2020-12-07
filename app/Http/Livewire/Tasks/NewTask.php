@@ -36,8 +36,6 @@ class NewTask extends Component
 
     public function createTask()
     {
-        $data = $this->validate($this->rules);
-
         $saved = Task::create($this->validate());
 
         if ($saved) {
