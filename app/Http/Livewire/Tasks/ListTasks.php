@@ -10,7 +10,7 @@ class ListTasks extends Component
 {
     use WithPagination;
 
-    public $listeners = [
+    protected $listeners = [
         'task-saved' => 'render'
     ];
 

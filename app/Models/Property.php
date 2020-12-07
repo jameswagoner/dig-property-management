@@ -13,9 +13,18 @@ class Property extends Model
 
     protected $guarded = [];
 
+    protected $appends = [
+        'full_address'
+    ];
+
     public function tasks()
     {
         return $this->hasMany(Task::class);
+    }
+
+    public function getFullAddressAttribute()
+    {
+        return $this->attributes['street_address'] . ' ' . $this->attributes['city'] . ', ' . $this->attributes['state'] . ' ' . $this->attributes['postal_code'];
     }
 
     public function toSearchableArray()
