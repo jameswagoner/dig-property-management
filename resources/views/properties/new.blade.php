@@ -8,10 +8,7 @@
             </div>
 
             <div class="mt-4 flex md:mt-0 md:ml-4">
-                <a href="{{ route('properties.list') }}" class="flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-sm uppercase tracking-widest text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:border-gray-700 focus:shadow-outline-blue active:bg-gray-700 transition ease-in-out duration-150">
-                    <svg class="h-4 w-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                    </svg>
+                <a href="{{ route('properties.list') }}" class="px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
                     Cancel
                 </a>
             </div>
