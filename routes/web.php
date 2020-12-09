@@ -23,4 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::view('properties/new', 'properties.new')->name('properties.new');
 
     Route::view('tasks', 'tasks')->name('tasks');
+
+    Route::view('users', 'users.list')->name('users.list');
+    Route::view('users/new', 'users.new')->name('users.new');
 });
