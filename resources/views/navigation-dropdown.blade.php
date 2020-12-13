@@ -27,6 +27,10 @@
                         Tasks
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('staff.list') }}" :active="request()->routeIs('staff.*')">
+                        Staff
+                    </x-jet-nav-link>
+
                 </div>
             </div>
 
@@ -149,6 +153,10 @@
 
             <x-jet-responsive-nav-link href="{{ route('tasks') }}" :active="request()->routeIs('tasks')">
                 Tasks
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('staff.list') }}" :active="request()->routeIs('staff.*')">
+                Staff
             </x-jet-responsive-nav-link>
         </div>
 
