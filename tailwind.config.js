@@ -16,6 +16,7 @@ module.exports = {
     },
 
     variants: {
+        cursor: ['hover'],
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
         outline: ['focus'],
     },

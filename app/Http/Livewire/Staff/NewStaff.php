@@ -2,25 +2,32 @@
 
 namespace App\Http\Livewire\Staff;
 
+use Hackzilla\PasswordGenerator\Generator\ComputerPasswordGenerator;
+use Laravel\Fortify\Rules\Password;
 use Livewire\Component;
 
 class NewStaff extends Component
 {
-    public $staff;
+    public $name;
+    public $email;
+    public $password;
 
     protected $rules = [
-        'staff.name' => 'required',
-        'staff.email' => 'required|email|unique:users'
+        'name' => 'required',
+        'email' => 'required|email|unique:users',
+        'password' => 'required',
     ];
 
-    protected $messages = [
-        'staff.name.required' => "The staff member's name is required",
-        'staff.email.required' => "A valid email address is required"
-    ];
-
-    public function mount()
+    public function generatePassword()
     {
-        // todo: init $this->staff
+        $generator = (new ComputerPasswordGenerator())
+            ->setUppercase()
+            ->setLowercase()
+            ->setNumbers()
+            ->setSymbols()
+            ->setLength(12);
+
+        $this->password = $generator->generatePassword();
     }
 
     public function save()
