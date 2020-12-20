@@ -11,13 +11,17 @@
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                <form class="space-y-6" action="#" method="POST">
+                <form class="space-y-6" action="{{ route('login') }}" method="POST">
+                    @csrf
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">
                             Email address
                         </label>
                         <div class="mt-1">
                             <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            @error('email')
+                            <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
@@ -27,6 +31,9 @@
                         </label>
                         <div class="mt-1">
                             <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            @error('password')
+                            <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
@@ -39,7 +46,7 @@
                         </div>
 
                         <div class="text-sm">
-                            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                            <a href="{{ route('password.request') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
                                 Forgot your password?
                             </a>
                         </div>
