@@ -4,7 +4,7 @@
     </a>
 </div>
 <nav aria-label="Global" class="hidden lg:ml-6 lg:flex lg:items-center lg:space-x-4">
-    <a href="#" class="px-3 py-2 text-gray-900 text-sm font-medium">
+    <a href="{{ route('properties.index') }}" class="px-3 py-2 text-gray-900 text-sm font-medium">
         Properties
     </a>
     <a href="#" class="px-3 py-2 text-gray-900 text-sm font-medium">
