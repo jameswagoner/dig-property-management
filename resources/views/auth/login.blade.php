@@ -9,9 +9,9 @@
                 Sign in to your account
             </h2>
 
-            @if ($status)
+            @if (session('status'))
                 <div class="mt-6 font-medium text-sm text-green-600">
-                    {{ $status }}
+                    {{ session('status') }}
                 </div>
             @endif
 
