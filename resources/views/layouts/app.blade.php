@@ -17,7 +17,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            <header x-data="{ open: false }" class="bg-white shadow">
+            <header x-data="{ open: false }" class="relative z-10 bg-white shadow">
                 <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex px-2 lg:px-0">
