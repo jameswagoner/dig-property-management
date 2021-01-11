@@ -10,6 +10,15 @@ class Index extends Component
 {
     use WithPagination;
 
+    protected $listeners = [
+        'saved'
+    ];
+
+    public function saved()
+    {
+        $this->render();
+    }
+
     public function render()
     {
         return view('livewire.properties.index', [

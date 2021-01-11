@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class Property extends Model
 {
     use HasFactory;
-    use Searchable;
 
     protected $guarded = [];
 
@@ -24,11 +22,10 @@ class Property extends Model
 
     public function getFullAddressAttribute()
     {
-        return $this->attributes['street_address'] . ' ' . $this->attributes['city'] . ', ' . $this->attributes['state'] . ' ' . $this->attributes['postal_code'];
-    }
+        if (!$this->street_address) {
+            return null;
+        }
 
-    public function toSearchableArray()
-    {
-        return $this->toArray();
+        return $this->street_address . ' ' . $this->city . ', ' . $this->state . ' ' . $this->postal_code;
     }
 }
