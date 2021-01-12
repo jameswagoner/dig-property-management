@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public bool $showModal = false;
+    public $showModal = false;
 
     public Property $property;
 
-    protected array $rules = [
+    protected $rules = [
         'property.nickname' => 'required',
         'property.rent_amount' => 'required',
         'property.street_address' => 'required',
