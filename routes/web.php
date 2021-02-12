@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+Route::view('/', 'frontpage');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
