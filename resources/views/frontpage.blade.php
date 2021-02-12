@@ -34,13 +34,7 @@
                             </div>
                         </div>
                         <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-
-                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
-
-                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
-
-                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
-
+                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Properties</a>
                             <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
 
                             <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
@@ -65,13 +59,7 @@
                         </div>
                         <div role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
                             <div class="px-2 pt-2 pb-3 space-y-1" role="none">
-
-                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Product</a>
-
-                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Features</a>
-
-                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Marketplace</a>
-
+                                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Properties</a>
                                 <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" role="menuitem">Company</a>
 
                             </div>
