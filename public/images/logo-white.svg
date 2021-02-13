@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="6.497" height="6.875"/>
+    <bx:guide x="80.859" y="149.138" angle="0"/>
+    <bx:guide x="162.993" y="185.245" angle="90"/>
+    <bx:guide x="246.967" y="72.603" angle="90"/>
+    <bx:guide x="256.459" y="119.481" angle="90"/>
+    <bx:guide x="231.517" y="50.952" angle="0"/>
+    <bx:guide x="316.627" y="175.619" angle="90"/>
+    <bx:guide x="306.726" y="112.218" angle="0"/>
+    <bx:guide x="347.132" y="129.038" angle="90"/>
+    <bx:guide x="118.77" y="149.594" angle="0"/>
+    <bx:guide x="189.628" y="373.307" angle="90"/>
+    <bx:guide x="381.451" y="329.977" angle="0"/>
+    <bx:guide x="343.912" y="299.39" angle="0"/>
+    <bx:guide x="382.302" y="157.451" angle="90"/>
+    <bx:guide x="283.088" y="223.253" angle="90"/>
+    <bx:guide x="193.791" y="279.13" angle="0"/>
+    <bx:guide x="156.171" y="302.894" angle="0"/>
+    <bx:guide x="218.452" y="251.707" angle="90"/>
+    <bx:guide x="133.379" y="204.147" angle="90"/>
+    <bx:guide x="246.257" y="260.643" angle="90"/>
+    <bx:guide x="231.147" y="335.807" angle="90"/>
+  </defs>
+  <polygon style="paint-order: fill; fill: rgb(255, 255, 255);" points="80.826 373.232 118.808 373.266 118.788 204.038 231.443 119.557 306.725 175.59 306.634 128.96 231.506 72.487 80.828 185.25"/>
+  <path d="M 156.179 251.742 L 193.82 223.201 L 343.861 223.263 L 343.947 157.395 L 381.275 185.211 L 381.534 373.316 L 156.146 373.343 Z M 193.757 335.902 L 343.902 335.943 L 343.927 260.745 L 193.873 260.73 Z" style="fill: rgb(255, 255, 255);"/>
+</svg>
