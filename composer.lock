@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffbedce2cdb702a691ebdee80d9d72db",
+    "content-hash": "91078710778534879d1fe8f662590b7f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -966,23 +966,23 @@
         },
         {
             "name": "hackzilla/password-generator",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hackzilla/password-generator.git",
-                "reference": "22c7af49ef46d349d60af0fa30f61dd4dec53330"
+                "reference": "53c13507b5b9875a07618f1f2a7db95e5b8c0638"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hackzilla/password-generator/zipball/22c7af49ef46d349d60af0fa30f61dd4dec53330",
-                "reference": "22c7af49ef46d349d60af0fa30f61dd4dec53330",
+                "url": "https://api.github.com/repos/hackzilla/password-generator/zipball/53c13507b5b9875a07618f1f2a7db95e5b8c0638",
+                "reference": "53c13507b5b9875a07618f1f2a7db95e5b8c0638",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+                "phpunit/phpunit": "^9.0"
             },
             "type": "library",
             "autoload": {
@@ -998,15 +998,15 @@
                 {
                     "name": "Daniel Platt",
                     "email": "github@ofdan.co.uk",
-                    "homepage": "http://www.hackzilla.org"
+                    "homepage": "https://www.hackzilla.org"
                 }
             ],
             "description": "Password Generator Library",
             "support": {
                 "issues": "https://github.com/hackzilla/password-generator/issues",
-                "source": "https://github.com/hackzilla/password-generator/tree/master"
+                "source": "https://github.com/hackzilla/password-generator/tree/1.6.0"
             },
-            "time": "2020-04-06T15:47:25+00:00"
+            "time": "2021-01-13T23:18:24+00:00"
         },
         {
             "name": "laravel/cashier",
@@ -2905,67 +2905,6 @@
                 "source": "https://github.com/sabberworm/PHP-CSS-Parser/tree/8.3.1"
             },
             "time": "2020-06-01T09:10:00+00:00"
-        },
-        {
-            "name": "spatie/laravel-flash",
-            "version": "1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-flash.git",
-                "reference": "e91ad1a63227482d5cd394015f2e4e8a3e427f58"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-flash/zipball/e91ad1a63227482d5cd394015f2e4e8a3e427f58",
-                "reference": "e91ad1a63227482d5cd394015f2e4e8a3e427f58",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/session": "^6.0|^7.0|^8.0",
-                "php": "^7.4 || ^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Flash\\": "src"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A lightweight package to flash messages",
-            "homepage": "https://github.com/spatie/laravel-flash",
-            "keywords": [
-                "laravel-flash",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-flash/issues",
-                "source": "https://github.com/spatie/laravel-flash/tree/1.8.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2020-11-27T07:26:26+00:00"
         },
         {
             "name": "spatie/laravel-permission",
