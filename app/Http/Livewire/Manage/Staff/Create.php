@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Staff;
+namespace App\Http\Livewire\Manage\Staff;
 
 use App\Models\User;
 use Hackzilla\PasswordGenerator\Generator\ComputerPasswordGenerator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Create extends Component
@@ -23,7 +24,7 @@ class Create extends Component
         'role' => 'required'
     ];
 
-    public function generatePassword()
+    public function generatePassword(): void
     {
         $generator = (new ComputerPasswordGenerator())
             ->setUppercase()
@@ -35,7 +36,7 @@ class Create extends Component
         $this->password = $generator->generatePassword();
     }
 
-    public function save()
+    public function save(): void
     {
         $this->validate();
 
@@ -52,12 +53,7 @@ class Create extends Component
         $this->redirectRoute('staff.index');
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.create');
     }
