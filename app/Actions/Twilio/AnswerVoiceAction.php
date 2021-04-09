@@ -17,7 +17,9 @@ class AnswerVoiceAction
             'timeout' => 3,
             'numDigits' => 1,
         ]);
-        $gather->say('Please press 1 or say maintainence for maintainence.');
+        $gather->say('Please press 1 or say maintenance for maintenance.');
+        $gather->say('Press 2 or say rent for rent payment.');
+        $gather->say('Press 3 or say drunk for drunk dialing this number.');
 
         return $voiceResponse;
     }
