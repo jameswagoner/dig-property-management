@@ -15,8 +15,9 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('nickname');
-            $table->integer('rent_amount')->default(0);
+
+            $table->string('name');
+            $table->integer('rent_amount')->unsigned()->default(0);
 
             $table->string('street_address');
             $table->string('city');

@@ -1,17 +1,30 @@
 <?php
 
+use App\Http\Controllers\TwilioController;
+use App\Http\Livewire\Properties\Create as PropertyCreate;
+use App\Http\Livewire\Properties\Index as PropertyIndex;
+use App\Http\Livewire\Properties\Show as PropertyShow;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontpage');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
-    Route::get('/properties', App\Http\Livewire\Properties\Index::class)->name('properties.index');
-    Route::get('/properties/new', App\Http\Livewire\Properties\Create::class)->name('properties.create');
-    Route::get('/properties/{property}', App\Http\Livewire\Properties\Show::class)->name('properties.show');
+    Route::prefix('manage')->name('manage.')->group(function() {
+        Route::view('settings', 'manage.settings')->name('settings');
+
+        Route::view('staff',        'manage.staff.index') ->name('staff');
+        Route::view('staff/create', 'manage.staff.create')->name('staff.create');
+    });
+
+    Route::get('properties',            PropertyIndex::class) ->name('properties.index');
+    Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
+    Route::get('properties/{property}', PropertyShow::class)  ->name('properties.show');
+});
+
+Route::prefix('webhooks')->name('webhooks.')->group(function() {
+    Route::post('twilio/voice', [TwilioController::class, 'voice'])->name('twilio.voice');
 });
 
 require __DIR__.'/auth.php';

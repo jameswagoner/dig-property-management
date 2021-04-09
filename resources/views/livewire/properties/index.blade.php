@@ -1,4 +1,19 @@
 <div>
+    <x-slot name="breadcrumbs">
+        <x-header.breadcrumbs>
+            <li>
+                <div class="flex items-center">
+                    <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+                    </svg>
+                    <span class="ml-4 text-sm font-medium text-gray-500">
+                        Properties
+                    </span>
+                </div>
+            </li>
+        </x-header.breadcrumbs>
+    </x-slot>
+
     <div class="max-w-3xl mx-auto lg:max-w-7xl sm:px-6">
         <div class="md:flex md:items-center md:justify-between">
             <div class="flex-1 min-w-0">

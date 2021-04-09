@@ -15,6 +15,11 @@ class Property extends Model
         'full_address'
     ];
 
+    public function units()
+    {
+        return $this->hasMany(Unit::class);
+    }
+
     public function tasks()
     {
         return $this->hasMany(Task::class);

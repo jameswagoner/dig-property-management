@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <x-header.breadcrumbs />
+                {{ $breadcrumbs }}
             </header>
 
             <main class="py-10">
