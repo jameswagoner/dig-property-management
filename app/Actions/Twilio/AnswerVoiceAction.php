@@ -6,10 +6,12 @@ use Twilio\TwiML\VoiceResponse;
 
 class AnswerVoiceAction
 {
-    public function __invoke(VoiceResponse $voiceResponse): VoiceResponse
+    public function __invoke(): VoiceResponse
     {
+        $voiceResponse = new VoiceResponse;
         $voiceResponse->say('Hello! You have reached the D I G tenant hotline.');
         $voiceResponse->pause();
+
         $gather = $voiceResponse->gather([
             'input' => 'speech dtmf',
             'timeout' => 3,
