@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TwilioController;
+use App\Http\Controllers\Webhooks\Twilio\VoiceController;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
@@ -24,7 +24,10 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {
-    Route::post('twilio/voice', [TwilioController::class, 'voice'])->name('twilio.voice');
+    Route::post('twilio/voice/answer',           [VoiceController::class, 'voice'])          ->name('twilio.voice.answer');
+    Route::post('twilio/voice/record',           [VoiceController::class, 'record'])         ->name('twilio.voice.record');
+    Route::post('twilio/voice/transcription',    [VoiceController::class, 'transcription'])  ->name('twilio.voice.transcription');
+    Route::post('twilio/voice/recording-status', [VoiceController::class, 'recordingStatus'])->name('twilio.voice.recording-status');
 });
 
 require __DIR__.'/auth.php';
