@@ -13,7 +13,7 @@ class AnswerVoiceAction
         $voiceResponse->pause();
 
         $gather = $voiceResponse->gather([
-            'action' => route(''),
+            'action' => route('webhooks.twilio.voice.record'),
             'input' => 'dtmf',
             'timeout' => 3,
             'numDigits' => 1,
