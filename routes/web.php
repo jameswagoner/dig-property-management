@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {
-    Route::post('twilio/voice/answer',           [VoiceController::class, 'voice'])          ->name('twilio.voice.answer');
+    Route::post('twilio/voice/answer',           [VoiceController::class, 'answer'])         ->name('twilio.voice.answer');
     Route::post('twilio/voice/record',           [VoiceController::class, 'record'])         ->name('twilio.voice.record');
     Route::post('twilio/voice/transcription',    [VoiceController::class, 'transcription'])  ->name('twilio.voice.transcription');
     Route::post('twilio/voice/recording-status', [VoiceController::class, 'recordingStatus'])->name('twilio.voice.recording-status');
