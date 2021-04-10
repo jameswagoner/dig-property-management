@@ -13,13 +13,17 @@ class AnswerVoiceAction
         $voiceResponse->pause();
 
         $gather = $voiceResponse->gather([
-            'input' => 'speech dtmf',
+            'action' => route(''),
+            'input' => 'dtmf',
             'timeout' => 3,
             'numDigits' => 1,
         ]);
-        $gather->say('Please press 1 or say maintenance for maintenance.');
-        $gather->say('Press 2 or say rent for rent payment.');
-        $gather->say('Press 3 or say drunk for drunk dialing this number.');
+        $gather->say(
+            'Please press 1 for maintenance. ' .
+            'Press 2 for all other inquiries.'
+        );
+
+        $voiceResponse->redirect(route('webhooks.twilio.voice.record'));
 
         return $voiceResponse;
     }
