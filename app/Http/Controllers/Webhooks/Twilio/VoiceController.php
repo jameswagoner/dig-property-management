@@ -22,11 +22,12 @@ class VoiceController extends Controller
         Request $request,
         RecordMaintenanceReqestAction $recordMaintenanceReqestAction,
         RecordOtherReqestAction $recordOtherReqestAction
-    ): string
+    )
     {
         return [
-            1 => $recordMaintenanceReqestAction()->asXML(),
-            2 => $recordOtherReqestAction()->asXML(),
+            1        => $recordMaintenanceReqestAction()->asXML(),
+            2        => $recordOtherReqestAction()->asXML(),
+            'hangup' => response('200 OK')
         ][$request->input('Digits')];
     }
 
