@@ -32,9 +32,10 @@ class VoiceController extends Controller
     public function recordStatus(Request $request): Response
     {
         IncomingRequest::firstOrCreate([
-            'call_sid' => $request->input('sid')
+            'call_sid' => $request->input('CallSid')
         ], [
-            'recording_url' => $request->input('uri')
+            'number' => $request->input('From'),
+            'recording_url' => $request->input('RecordingUrl'),
         ]);
 
         return response();
@@ -43,9 +44,10 @@ class VoiceController extends Controller
     public function transcription(Request $request): Response
     {
         IncomingRequest::firstOrCreate([
-            'call_sid' => $request->input('sid')
+            'call_sid' => $request->input('CallSid')
         ], [
-            'text' => $request->input('transcription_text')
+            'number' => $request->input('From'),
+            'text' => $request->input('TranscriptionText'),
         ]);
 
         return response();
