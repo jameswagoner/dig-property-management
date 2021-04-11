@@ -29,7 +29,7 @@ class VoiceController extends Controller
         ][$request->input('Digits')];
     }
 
-    public function recordStatus(Request $request): Response
+    public function recordingStatus(Request $request): Response
     {
         IncomingRequest::firstOrCreate([
             'call_sid' => $request->input('CallSid')
