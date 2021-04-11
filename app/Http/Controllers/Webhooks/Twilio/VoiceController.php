@@ -38,7 +38,7 @@ class VoiceController extends Controller
             'recording_url' => $request->input('RecordingUrl'),
         ]);
 
-        return response();
+        return response('200 OK');
     }
 
     public function transcription(Request $request): Response
@@ -50,6 +50,6 @@ class VoiceController extends Controller
             'text' => $request->input('TranscriptionText'),
         ]);
 
-        return response();
+        return response('200 OK');
     }
 }
