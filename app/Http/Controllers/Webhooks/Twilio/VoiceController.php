@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\IncomingRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\ResponseFactory;
 
 class VoiceController extends Controller
 {
@@ -29,7 +30,7 @@ class VoiceController extends Controller
         ][$request->input('Digits')];
     }
 
-    public function recordingStatus(Request $request): Response
+    public function recordingStatus(Request $request): ResponseFactory
     {
         IncomingRequest::firstOrCreate([
             'call_sid' => $request->input('CallSid')
@@ -41,7 +42,7 @@ class VoiceController extends Controller
         return response('200 OK');
     }
 
-    public function transcription(Request $request): Response
+    public function transcription(Request $request): ResponseFactory
     {
         IncomingRequest::firstOrCreate([
             'call_sid' => $request->input('CallSid')
