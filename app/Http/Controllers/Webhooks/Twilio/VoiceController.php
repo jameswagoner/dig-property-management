@@ -30,7 +30,7 @@ class VoiceController extends Controller
         ][$request->input('Digits')];
     }
 
-    public function recordingStatus(Request $request): ResponseFactory
+    public function recordingStatus(Request $request)
     {
         IncomingRequest::firstOrCreate([
             'call_sid' => $request->input('CallSid')
@@ -42,7 +42,7 @@ class VoiceController extends Controller
         return response('200 OK');
     }
 
-    public function transcription(Request $request): ResponseFactory
+    public function transcription(Request $request)
     {
         IncomingRequest::firstOrCreate([
             'call_sid' => $request->input('CallSid')
