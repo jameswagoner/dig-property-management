@@ -22,7 +22,7 @@ class CreateIncomingRequestsTable extends Migration
 
             $table->foreignIdFor(User::class, 'marked_read_by')->nullable();
 
-            $table->timestamp('marked_read_at');
+            $table->timestamp('marked_read_at')->nullable();
             $table->timestamps();
         });
     }
