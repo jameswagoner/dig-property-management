@@ -11,7 +11,9 @@ class StoreVoiceAction
     {
         IncomingRequest::create([
             'call_sid' => $request->input('CallSid'),
-            'number'   => $request->input('From')
+            'number'   => $request->input('From'),
+            'type'     => IncomingRequest::getTypeFromRequest($request),
+            'payload'  => $request->all(),
         ]);
     }
 }

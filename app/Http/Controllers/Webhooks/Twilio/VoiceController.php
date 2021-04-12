@@ -43,12 +43,9 @@ class VoiceController extends Controller
         NotifyManagementAction $notifyManagementAction
     )
     {
-        IncomingRequest::firstOrCreate([
-            'call_sid' => $request->input('CallSid')
-        ], [
-            'number' => $request->input('From'),
-            'recording_url' => $request->input('RecordingUrl'),
-        ]);
+        $incomingRequest = IncomingRequest::where('call_sid', $request->input('CallSid'))->firstOrFail();
+        $incomingRequest->recording_url = $request->input('RecordingUrl');
+        $incomingRequest->saveQuietly();
 
         $notifyManagementAction($client, 'New tenant request', ['+13608314766']);
 
