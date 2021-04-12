@@ -28,12 +28,15 @@ class VoiceController extends Controller
         RecordOtherReqestAction $recordOtherReqestAction
     )
     {
+        if ($request->input('Digits') === 'hangup') {
+            return response('200 OK');
+        }
+
         $storeVoiceAction($request);
 
         return [
             1        => $recordMaintenanceReqestAction()->asXML(),
             2        => $recordOtherReqestAction()->asXML(),
-            'hangup' => response('200 OK')
         ][$request->input('Digits')];
     }
 
