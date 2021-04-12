@@ -14,8 +14,6 @@ class RecordOtherReqestAction
         $voiceResponse->record([
             'recordingStatusCallbackEvent' => 'completed',
             'recordingStatusCallback' => route('webhooks.twilio.voice.recording-status'),
-            'transcribe' => 'true',
-            'transcribeCallback' => route('webhooks.twilio.voice.transcription'),
         ]);
 
         return $voiceResponse;
