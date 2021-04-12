@@ -22,10 +22,8 @@ class TwilioServiceProvider extends ServiceProvider
             }
         }
 
-        $this->app->bind('twilio', function () {
-            $client = new Client(config('twilio.account_sid'), config('twilio.auth_token'));
-
-            return new Twilio($client);
+        $this->app->bind(Client::class, function () {
+            return new Client(config('twilio.account_sid'), config('twilio.auth_token'));
         });
     }
 
