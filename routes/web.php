@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
+use App\Http\Livewire\Maintenance\Incoming as IncomingMaintenance;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
@@ -21,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('properties',            PropertyIndex::class) ->name('properties.index');
     Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
     Route::get('properties/{property}', PropertyShow::class)  ->name('properties.show');
+
+    Route::get('maintenance/incoming', IncomingMaintenance::class)->name('maintenance.incoming');
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {
