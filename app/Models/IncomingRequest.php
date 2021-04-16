@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
 class IncomingRequest extends Model
@@ -12,6 +13,11 @@ class IncomingRequest extends Model
     protected $casts = [
         'payload' => 'object'
     ];
+
+    public function tenant(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'number', 'number');
+    }
 
     public static function getTypeFromRequest(Request $request): string
     {
