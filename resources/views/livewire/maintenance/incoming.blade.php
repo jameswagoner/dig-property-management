@@ -50,7 +50,7 @@
                         {{ $request->recording_url ?? $request->text }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Details</a>
+                        <a href="#" class="text-orange-600 hover:text-orange-900">Details</a>
                     </td>
                 </tr>
                 @empty

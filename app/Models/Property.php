@@ -20,9 +20,9 @@ class Property extends Model
         return $this->hasMany(Unit::class);
     }
 
-    public function tasks()
+    public function workOrders()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(WorkOrder::class);
     }
 
     public function getFullAddressAttribute()

@@ -3,18 +3,18 @@
 namespace Database\Factories;
 
 use App\Models\Property;
-use App\Models\Task;
+use App\Models\WorkOrder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 
-class TaskFactory extends Factory
+class WorkOrderFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Task::class;
+    protected $model = WorkOrder::class;
 
     /**
      * Define the model's default state.

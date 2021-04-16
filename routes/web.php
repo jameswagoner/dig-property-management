@@ -5,6 +5,7 @@ use App\Http\Livewire\Maintenance\Incoming as IncomingMaintenance;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
+use App\Http\Livewire\WorkOrders\Index as WorkOrderIndex;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontpage');
@@ -18,6 +19,8 @@ Route::middleware(['auth'])->group(function () {
         Route::view('staff',        'manage.staff.index') ->name('staff');
         Route::view('staff/create', 'manage.staff.create')->name('staff.create');
     });
+
+    Route::get('work-orders', WorkOrderIndex::class)->name('work-orders.index');
 
     Route::get('properties',            PropertyIndex::class) ->name('properties.index');
     Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
