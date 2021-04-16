@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
-use App\Http\Livewire\Maintenance\Incoming as IncomingMaintenance;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
 use App\Http\Livewire\WorkOrders\Index as WorkOrderIndex;
+use App\Http\Livewire\WorkOrders\Pending as WorkOrderPending;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontpage');
@@ -20,13 +20,12 @@ Route::middleware(['auth'])->group(function () {
         Route::view('staff/create', 'manage.staff.create')->name('staff.create');
     });
 
-    Route::get('work-orders', WorkOrderIndex::class)->name('work-orders.index');
+    Route::get('work-orders',         WorkOrderIndex::class)  ->name('work-orders.index');
+    Route::get('work-orders/pending', WorkOrderPending::class)->name('work-orders.pending');
 
     Route::get('properties',            PropertyIndex::class) ->name('properties.index');
     Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
     Route::get('properties/{property}', PropertyShow::class)  ->name('properties.show');
-
-    Route::get('maintenance/incoming', IncomingMaintenance::class)->name('maintenance.incoming');
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {
