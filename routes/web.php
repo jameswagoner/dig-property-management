@@ -18,6 +18,9 @@ Route::middleware(['auth'])->group(function () {
 
         Route::view('staff',        'manage.staff.index') ->name('staff');
         Route::view('staff/create', 'manage.staff.create')->name('staff.create');
+
+        Route::view('tenants',        'manage.tenants.index') ->name('tenants');
+        Route::view('tenants/create', 'manage.tenants.create')->name('tenants.create');
     });
 
     Route::get('work-orders',         WorkOrderIndex::class)  ->name('work-orders.index');
