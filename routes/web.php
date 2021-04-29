@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
@@ -35,6 +36,8 @@ Route::prefix('webhooks')->name('webhooks.')->group(function() {
     Route::post('twilio/voice/answer',           [VoiceController::class, 'answer'])         ->name('twilio.voice.answer');
     Route::post('twilio/voice/record',           [VoiceController::class, 'record'])         ->name('twilio.voice.record');
     Route::post('twilio/voice/recording-status', [VoiceController::class, 'recordingStatus'])->name('twilio.voice.recording-status');
+
+    Route::post('twilio/sms/incoming', [SmsController::class, 'incoming'])->name('twilio.sms.incoming');
 });
 
 require __DIR__.'/auth.php';

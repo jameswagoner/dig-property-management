@@ -5,14 +5,15 @@ namespace App\Actions\Twilio;
 use App\Models\IncomingRequest;
 use Illuminate\Http\Request;
 
-class StoreVoiceAction
+class StoreSmsAction
 {
     public function __invoke(Request $request): void
     {
         IncomingRequest::create([
-            'sid'      => $request->input('CallSid'),
+            'sid'      => $request->input('SmsSid'),
             'number'   => $request->input('From'),
-            'type'     => IncomingRequest::getTypeFromRequest($request),
+            'type'     => 'sms',
+            'text'     => $request->input('Body'),
             'payload'  => $request->all(),
         ]);
     }
