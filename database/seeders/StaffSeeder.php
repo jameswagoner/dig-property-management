@@ -23,6 +23,6 @@ class StaffSeeder extends Seeder
             'password' => Hash::make('digging for money'),
         ]);
 
-        $superAdmin->assignRole('super-admin');
+        $superAdmin->assignRole(['super-admin', 'staff']);
     }
 }
