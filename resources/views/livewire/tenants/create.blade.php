@@ -43,7 +43,7 @@
                             Phone Number
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <input id="number" wire:model.defer="number" type="tel" class="block max-w-lg w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input id="number" wire:model.defer="number" type="tel" class="max-w-lg block w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@
                             Email address
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <input id="email" wire:model.defer="email" type="email" class="block max-w-lg w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input id="email" wire:model.defer="email" type="email" class="max-w-lg block w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                         </div>
                     </div>
 
