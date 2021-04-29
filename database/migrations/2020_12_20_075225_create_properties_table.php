@@ -17,9 +17,8 @@ class CreatePropertiesTable extends Migration
             $table->id();
 
             $table->string('name');
-            $table->integer('rent_amount')->unsigned()->default(0);
 
-            $table->string('street_address');
+            $table->string('street_address')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('postal_code');
