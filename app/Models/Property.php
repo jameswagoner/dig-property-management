@@ -27,10 +27,11 @@ class Property extends Model
 
     public function getFullAddressAttribute()
     {
-        if (!$this->street_address) {
-            return null;
+        $street_name = $this->street_address;
+        if (!$street_name) {
+            $street_name = $this->name;
         }
 
-        return $this->street_address . ' ' . $this->city . ', ' . $this->state . ' ' . $this->postal_code;
+        return $street_name . ' ' . $this->city . ', ' . $this->state . ' ' . $this->postal_code;
     }
 }
