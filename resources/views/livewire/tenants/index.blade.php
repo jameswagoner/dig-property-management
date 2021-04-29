@@ -49,7 +49,7 @@
             @empty
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500" colspan="4">
-                    No staff members exist
+                    No tenants exist
                 </td>
             </tr>
             @endforelse
