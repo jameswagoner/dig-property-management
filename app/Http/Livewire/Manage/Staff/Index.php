@@ -11,7 +11,7 @@ class Index extends Component
     public function render(): View
     {
         return view('livewire.staff.index', [
-            'users' => User::all()
+            'users' => User::role('staff')->get()
         ]);
     }
 }

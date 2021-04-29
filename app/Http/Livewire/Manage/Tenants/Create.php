@@ -12,13 +12,15 @@ class Create extends Component
 {
     public $first_name;
     public $last_name;
+    public $number;
     public $email;
     public $password;
-    public $role;
+    public $role = 'tenant';
 
     protected $rules = [
         'first_name' => 'required',
         'last_name' => 'required',
+        'number' => 'required',
         'email' => 'required|email|unique:users',
         'password' => 'required',
         'role' => 'required'
@@ -43,6 +45,7 @@ class Create extends Component
         $user = User::create([
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
+            'number' => $this->number,
             'email' => $this->email,
             'password' => Hash::make($this->password)
         ]);
@@ -50,7 +53,7 @@ class Create extends Component
         $user->assignRole($this->role);
 
 
-        $this->redirectRoute('staff.index');
+        $this->redirectRoute('manage.tenants.index');
     }
 
     public function render(): View
