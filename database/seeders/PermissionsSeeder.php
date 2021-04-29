@@ -33,6 +33,9 @@ class PermissionsSeeder extends Seeder
         $staffRole->givePermissionTo('edit tenants');
         $staffRole->givePermissionTo('delete tenants');
 
+        // create a tenant role
+        Role::create(['name' => 'tenant']);
+
         // create an admin role
         Role::create(['name' => 'admin']);
 
