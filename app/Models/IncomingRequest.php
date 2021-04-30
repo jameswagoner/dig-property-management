@@ -19,6 +19,11 @@ class IncomingRequest extends Model
         return $this->belongsTo(User::class, 'number', 'number');
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'marked_read_by');
+    }
+
     public static function getTypeFromRequest(Request $request): string
     {
         return [

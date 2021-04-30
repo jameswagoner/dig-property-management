@@ -13,8 +13,7 @@ class Pending extends Component
 
     public function render(): View
     {
-        $incomingRequests = IncomingRequest::where('type', 'maintenance')
-            ->orderByDesc('created_at')
+        $incomingRequests = IncomingRequest::orderByDesc('created_at')
             ->paginate();
 
         return view('livewire.work-orders.pending', compact('incomingRequests'));
