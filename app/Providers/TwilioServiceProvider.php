@@ -18,11 +18,11 @@ class TwilioServiceProvider extends ServiceProvider
     {
         foreach (config('twilio') as $key => $value) {
             if (empty($value)) {
-                throw new Exception("Please provide a value for ${key}");
+                throw new Exception("Please provide a value for $key");
             }
         }
 
-        $this->app->bind(Client::class, function () {
+        $this->app->singleton(Client::class, function () {
             return new Client(config('twilio.account_sid'), config('twilio.auth_token'));
         });
     }
