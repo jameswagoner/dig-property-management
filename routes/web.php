@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
+use App\Http\Livewire\Manage\Tenants\Communication as TenantCommunication;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
@@ -22,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
 
         Route::view('tenants',        'manage.tenants.index') ->name('tenants');
         Route::view('tenants/create', 'manage.tenants.create')->name('tenants.create');
+
+        Route::get('tenants/communication', TenantCommunication::class)->name('tenants.communication');
     });
 
     Route::get('work-orders',         WorkOrderIndex::class)  ->name('work-orders.index');

@@ -13,4 +13,7 @@
     <a href="{{ route('work-orders.index') }}" class="px-3 py-2 text-gray-900 text-sm font-medium">
         Work Orders
     </a>
+    <a href="{{ route('manage.tenants.communication') }}" class="px-3 py-2 text-gray-900 text-sm font-medium">
+        Communication
+    </a>
 </nav>
