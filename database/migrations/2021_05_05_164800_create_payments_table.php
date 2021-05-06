@@ -12,6 +12,7 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class, 'user_id');
+            $table->string('transaction_id')->default('NA');
 
             $table->integer('amount')->unsigned();
             $table->string('description')->nullable();
