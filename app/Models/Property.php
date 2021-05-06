@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Property extends Model
 {
@@ -13,17 +13,17 @@ class Property extends Model
         'full_address'
     ];
 
-    public function units()
+    public function units(): HasMany
     {
         return $this->hasMany(Unit::class);
     }
 
-    public function workOrders()
+    public function workOrders(): HasMany
     {
         return $this->hasMany(WorkOrder::class);
     }
 
-    public function getFullAddressAttribute()
+    public function getFullAddressAttribute(): string
     {
         $street_name = $this->street_address;
         if (!$street_name) {
