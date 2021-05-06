@@ -8,8 +8,6 @@ use Illuminate\Support\Str;
 
 class WorkOrder extends Model
 {
-    use HasFactory;
-
     protected $guarded = [];
 
     public function property()

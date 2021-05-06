@@ -9,8 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory,
-        HasRoles,
+    use HasRoles,
         Notifiable;
 
     /**
