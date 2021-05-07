@@ -14,6 +14,16 @@ class Message extends Model
         'payload' => 'object'
     ];
 
+    const OUTBOUND = 'outbound';
+    const INBOUND = 'inbound';
+    const AUTOMATION = 'automation';
+
+    public static array $directions = [
+        self::OUTBOUND,
+        self::INBOUND,
+        self::AUTOMATION,
+    ];
+
     public function tenant(): BelongsTo
     {
         return $this->belongsTo(User::class, 'number', 'number');

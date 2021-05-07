@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 
 class StoreVoiceAction
 {
-    public function __invoke(Request $request): void
+    public function __invoke(Request $request, string $direction = 'automation'): void
     {
         Message::create([
             'sid'      => $request->input('CallSid'),
             'number'   => $request->input('From'),
             'type'     => Message::getTypeFromRequest($request),
+            'direction' => $direction,
             'payload'  => $request->all(),
         ]);
     }

@@ -30,7 +30,7 @@ class VoiceController extends Controller
             return response('200 OK');
         }
 
-        $storeVoiceAction($request);
+        $storeVoiceAction($request, Message::INBOUND);
 
         return [
             1        => $recordMaintenanceReqestAction()->asXML(),
