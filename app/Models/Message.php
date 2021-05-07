@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
-class IncomingRequest extends Model
+class Message extends Model
 {
     protected $guarded = [];
 

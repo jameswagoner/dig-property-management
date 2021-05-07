@@ -2,14 +2,14 @@
 
 namespace App\Actions\Twilio;
 
-use App\Models\IncomingRequest;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class StoreSmsAction
 {
     public function __invoke(Request $request): void
     {
-        IncomingRequest::create([
+        Message::create([
             'sid'      => $request->input('SmsSid'),
             'number'   => $request->input('From'),
             'type'     => 'sms',
