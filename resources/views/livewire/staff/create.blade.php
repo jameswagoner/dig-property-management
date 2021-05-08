@@ -56,6 +56,15 @@
                         </div>
                     </div>
 
+                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <label for="password" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                            Password
+                        </label>
+                        <div class="mt-1 sm:mt-0 sm:col-span-2">
+                            <input id="password" wire:model.defer="password" type="text" class="block max-w-lg w-full shadow-sm sm:text-sm border-gray-300 rounded-md" readonly>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
