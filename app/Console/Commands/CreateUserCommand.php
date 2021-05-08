@@ -18,6 +18,7 @@ class CreateUserCommand extends Command
             'first_name' => $this->ask('First name?'),
             'last_name' => $this->ask('Last name?'),
             'email' => $this->ask('Email?'),
+            'number' => $this->ask('Number?'),
             'password' => Hash::make('password')
         ]);
 

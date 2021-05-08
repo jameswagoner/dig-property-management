@@ -13,6 +13,7 @@ class Create extends Component
     public $first_name;
     public $last_name;
     public $email;
+    public $number;
     public $password;
     public $role;
 
@@ -20,11 +21,17 @@ class Create extends Component
         'first_name' => 'required',
         'last_name' => 'required',
         'email' => 'required|email|unique:users',
+        'number' => 'required',
         'password' => 'required',
         'role' => 'required'
     ];
 
-    public function generatePassword(): void
+    public function mount()
+    {
+        $this->password = $this->generatePassword();
+    }
+
+    public function generatePassword(): string
     {
         $generator = (new ComputerPasswordGenerator())
             ->setUppercase()
@@ -33,7 +40,7 @@ class Create extends Component
             ->setSymbols()
             ->setLength(12);
 
-        $this->password = $generator->generatePassword();
+        return $generator->generatePassword();
     }
 
     public function save(): void
@@ -44,6 +51,7 @@ class Create extends Component
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'email' => $this->email,
+            'number' => $this->number,
             'password' => Hash::make($this->password)
         ]);
 
