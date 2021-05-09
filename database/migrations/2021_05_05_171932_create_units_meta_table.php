@@ -11,7 +11,7 @@ class CreateUnitsMetaTable extends Migration
     {
         Schema::create('units_meta', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Unit::class, 'unit_id');
+            $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
 
             $table->string('type')->default('null');
 

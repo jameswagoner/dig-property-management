@@ -4,15 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnitMetaTable extends Migration
+class CreatePropertiesMetaTable extends Migration
 {
     public function up()
     {
-        Schema::create('unit_meta', function (Blueprint $table) {
+        Schema::create('property_meta', function (Blueprint $table) {
             $table->id();
-
-            $table->integer('unit_id')->unsigned()->index();
-            $table->foreign('unit_id')->references('id')->on('unit')->onDelete('cascade');
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
 
             $table->string('type')->default('null');
 
@@ -25,6 +23,6 @@ class CreateUnitMetaTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('unit_meta');
+        Schema::dropIfExists('property_meta');
     }
 }
