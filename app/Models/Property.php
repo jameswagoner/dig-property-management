@@ -4,13 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Kodeine\Metable\Metable;
 
 class Property extends Model
 {
+    use Metable;
+
     protected $guarded = [];
 
     protected $appends = [
         'full_address'
+    ];
+
+    public array $defaultMetaValues = [
+        'rentable' => false,
     ];
 
     public function units(): HasMany

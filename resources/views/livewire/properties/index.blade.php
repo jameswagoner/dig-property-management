@@ -44,13 +44,19 @@
                                             {{ $property->name }}
                                         </p>
                                         <div class="ml-2 flex-shrink-0 flex">
-                                            @if (true)
+                                            @if($property->rentable)
+                                                @if ($property->rented)
                                                 <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                     Rented
                                                 </p>
-                                            @else
+                                                @else
                                                 <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                                     Vacant
+                                                </p>
+                                                @endif
+                                            @else
+                                                <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                    {{ $property->units->count() }} Units
                                                 </p>
                                             @endif
                                         </div>
@@ -63,9 +69,11 @@
                                             </svg>
                                             {{ $property->full_address }}
                                         </p>
+                                        @if ($property->rent_amount)
                                         <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                            Monthly Rent <span class="ml-1 font-semibold">$0.00</span>
+                                            Monthly Rent <span class="ml-1 font-semibold">${{ number_format($property->rent_amount / 100, 2) }}</span>
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </a>
