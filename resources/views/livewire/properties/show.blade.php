@@ -89,7 +89,28 @@
                 <h2 class="text-lg font-medium text-gray-900">Units</h2>
 
                 <div class="mt-6 flow-root">
-                    {{-- Unit list --}}
+                    <ul class="divide-y divide-gray-200">
+                        @foreach($property->units as $unit)
+                        <li>
+                            <a href="{{ route('units.show', $unit) }}" class="block hover:bg-gray-50">
+                                <div class="flex items-center justify-between py-4">
+                                    <div>
+                                        <p class="text-sm font-medium text-orange-600 truncate">{{ $unit->name }} {{ $property->name }}</p>
+                                        <p class="mt-2 flex items-center text-sm text-gray-500">
+                                            <span class="truncate">(tenant name)</span>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <!-- Heroicon name: solid/chevron-right -->
+                                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </section>

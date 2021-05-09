@@ -35,7 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
     Route::get('properties/{property}', PropertyShow::class)  ->name('properties.show');
 
-    Route::get('units', UnitIndex::class)->name('units.index');
+    Route::get('units',        UnitIndex::class)->name('units.index');
+    Route::get('units/{unit}', function($unit) {})->name('units.show');
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {
