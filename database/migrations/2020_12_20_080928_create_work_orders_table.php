@@ -10,7 +10,7 @@ class CreateWorkOrdersTable extends Migration
     {
         Schema::create('work_orders', function (Blueprint $table) {
             $table->id();
-            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
+            $table->foreignId('property_id')->constrained()->onDelete('cascade');
 
             $table->string('title')->index();
             $table->text('description');

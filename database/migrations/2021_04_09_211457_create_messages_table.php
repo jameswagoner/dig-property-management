@@ -21,7 +21,7 @@ class CreateIncomingRequestsTable extends Migration
 
             $table->json('payload')->nullable();
 
-            $table->foreign('marked_read_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('marked_read_by')->constrained('users')->onDelete('cascade');
 
             $table->timestamp('marked_read_at')->nullable();
             $table->timestamps();

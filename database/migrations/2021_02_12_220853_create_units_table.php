@@ -10,7 +10,7 @@ class CreateUnitsTable extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
+            $table->foreignId('property_id')->constrained()->onDelete('cascade');
 
             $table->string('name');
 
