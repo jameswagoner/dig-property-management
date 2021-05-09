@@ -6,6 +6,7 @@ use App\Http\Livewire\Manage\Tenants\Communication as TenantCommunication;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
+use App\Http\Livewire\Units\Index as UnitIndex;
 use App\Http\Livewire\WorkOrders\Index as WorkOrderIndex;
 use App\Http\Livewire\WorkOrders\Pending as WorkOrderPending;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('properties',            PropertyIndex::class) ->name('properties.index');
     Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
     Route::get('properties/{property}', PropertyShow::class)  ->name('properties.show');
+
+    Route::get('units', UnitIndex::class)->name('units.index');
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {

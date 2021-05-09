@@ -11,13 +11,8 @@ class Index extends Component
     use WithPagination;
 
     protected $listeners = [
-        'saved'
+        'saved' => 'render'
     ];
-
-    public function saved()
-    {
-        $this->render();
-    }
 
     public function render()
     {
