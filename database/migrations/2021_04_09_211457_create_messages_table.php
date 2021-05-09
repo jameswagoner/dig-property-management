@@ -9,7 +9,7 @@ class CreateIncomingRequestsTable extends Migration
 {
     public function up()
     {
-        Schema::create('incoming_requests', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('call_sid');
 
