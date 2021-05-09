@@ -11,7 +11,7 @@
         </div>
         <div>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
-            <form method="POST" action="{{ route('logout') }}">
+            <form id="logout" method="POST" action="{{ route('logout') }}">
                 @csrf
 
                 <a href="#" onclick="event.preventDefault(); this.closest('form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Manage\Staff;
+namespace App\Http\Livewire\Manage\Tenants;
 
 use App\Models\User;
 use Hackzilla\PasswordGenerator\Generator\ComputerPasswordGenerator;
@@ -12,26 +12,21 @@ class Create extends Component
 {
     public $first_name;
     public $last_name;
-    public $email;
     public $number;
+    public $email;
     public $password;
-    public $role;
+    public $role = 'tenant';
 
     protected $rules = [
         'first_name' => 'required',
         'last_name' => 'required',
-        'email' => 'required|email|unique:users',
         'number' => 'required',
+        'email' => 'required|email|unique:users',
         'password' => 'required',
         'role' => 'required'
     ];
 
-    public function mount()
-    {
-        $this->password = $this->generatePassword();
-    }
-
-    public function generatePassword(): string
+    public function generatePassword(): void
     {
         $generator = (new ComputerPasswordGenerator())
             ->setUppercase()
@@ -40,7 +35,7 @@ class Create extends Component
             ->setSymbols()
             ->setLength(12);
 
-        return $generator->generatePassword();
+        $this->password = $generator->generatePassword();
     }
 
     public function save(): void
@@ -50,19 +45,19 @@ class Create extends Component
         $user = User::create([
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
-            'email' => $this->email,
             'number' => $this->number,
+            'email' => $this->email,
             'password' => Hash::make($this->password)
         ]);
 
         $user->assignRole($this->role);
 
 
-        $this->redirectRoute('staff.index');
+        $this->redirectRoute('manage.tenants.index');
     }
 
     public function render(): View
     {
-        return view('livewire.staff.create');
+        return view('livewire.tenants.create');
     }
 }

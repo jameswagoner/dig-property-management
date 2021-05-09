@@ -8,10 +8,8 @@ use App\Actions\Twilio\RecordMaintenanceReqestAction;
 use App\Actions\Twilio\RecordOtherReqestAction;
 use App\Actions\Twilio\StoreVoiceAction;
 use App\Http\Controllers\Controller;
-use App\Models\IncomingRequest;
+use App\Models\Message;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Routing\ResponseFactory;
 use Twilio\Rest\Client;
 
 class VoiceController extends Controller
@@ -32,7 +30,7 @@ class VoiceController extends Controller
             return response('200 OK');
         }
 
-        $storeVoiceAction($request);
+        $storeVoiceAction($request, Message::INBOUND);
 
         return [
             1        => $recordMaintenanceReqestAction()->asXML(),
@@ -46,7 +44,7 @@ class VoiceController extends Controller
         NotifyManagementAction $notifyManagementAction
     )
     {
-        $incomingRequest = IncomingRequest::where('call_sid', $request->input('CallSid'))->firstOrFail();
+        $incomingRequest = Message::where('call_sid', $request->input('CallSid'))->firstOrFail();
         $incomingRequest->recording_url = $request->input('RecordingUrl');
         $incomingRequest->saveQuietly();
 

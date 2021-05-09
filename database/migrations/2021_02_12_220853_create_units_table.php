@@ -13,7 +13,6 @@ class CreateUnitsTable extends Migration
             $table->foreignId('property_id');
 
             $table->string('name');
-            $table->integer('rent_amount')->unsigned()->default(0);
 
             $table->timestamps();
         });

@@ -18,7 +18,7 @@
                         <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                     </svg>
                     <span aria-current="page" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
-                        Staff
+                        Tenants
                     </span>
                 </div>
             </li>
@@ -40,9 +40,9 @@
                         </span>
                     </a>
 
-                    <a href="{{ route('manage.staff') }}" class="bg-gray-50 text-orange-600 hover:bg-white group rounded-md px-3 py-2 flex items-center text-sm font-medium" aria-current="page">
+                    <a href="{{ route('manage.staff') }}" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
                         <!-- Heroicon name: outline/users -->
-                        <svg class="text-orange-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
                         <span class="truncate">
@@ -50,9 +50,9 @@
                         </span>
                     </a>
 
-                    <a href="{{ route('manage.tenants') }}" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
+                    <a href="{{ route('manage.tenants') }}" class="bg-gray-50 text-orange-600 hover:bg-white group rounded-md px-3 py-2 flex items-center text-sm font-medium" aria-current="page">
                         <!-- Heroicon name: outline/users -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="text-orange-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
                         <span class="truncate">
@@ -63,7 +63,7 @@
                 </nav>
             </aside>
 
-            <livewire:manage.staff.create />
+            <livewire:manage.tenants.create />
         </div>
     </div>
 </x-app-layout>

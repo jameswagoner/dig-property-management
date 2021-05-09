@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
+use App\Http\Livewire\Manage\Tenants\Communication as TenantCommunication;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
@@ -18,6 +20,11 @@ Route::middleware(['auth'])->group(function () {
 
         Route::view('staff',        'manage.staff.index') ->name('staff');
         Route::view('staff/create', 'manage.staff.create')->name('staff.create');
+
+        Route::view('tenants',        'manage.tenants.index') ->name('tenants');
+        Route::view('tenants/create', 'manage.tenants.create')->name('tenants.create');
+
+        Route::get('tenants/communication', TenantCommunication::class)->name('tenants.communication');
     });
 
     Route::get('work-orders',         WorkOrderIndex::class)  ->name('work-orders.index');
@@ -32,6 +39,8 @@ Route::prefix('webhooks')->name('webhooks.')->group(function() {
     Route::post('twilio/voice/answer',           [VoiceController::class, 'answer'])         ->name('twilio.voice.answer');
     Route::post('twilio/voice/record',           [VoiceController::class, 'record'])         ->name('twilio.voice.record');
     Route::post('twilio/voice/recording-status', [VoiceController::class, 'recordingStatus'])->name('twilio.voice.recording-status');
+
+    Route::post('twilio/sms/incoming', [SmsController::class, 'incoming'])->name('twilio.sms.incoming');
 });
 
 require __DIR__.'/auth.php';

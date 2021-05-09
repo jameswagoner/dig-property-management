@@ -15,6 +15,7 @@ class CreateIncomingRequestsTable extends Migration
 
             $table->string('number')->nullable();
             $table->string('type');
+            $table->string('direction')->default('automation');
             $table->string('recording_url')->nullable();
             $table->text('text')->nullable();
 

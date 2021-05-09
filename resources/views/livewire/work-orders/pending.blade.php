@@ -41,9 +41,16 @@
                                 <!-- Task summary -->
                                 <div class="min-w-0 space-y-3">
                                     <div class="flex items-center space-x-3">
-                                        <span class="h-4 w-4 bg-gray-100 rounded-full flex items-center justify-center">
-                                            <span class="h-2 w-2 bg-gray-400 rounded-full"></span>
+                                        @if ($incomingRequest->user)
+                                        <span class="h-4 w-4 bg-green-100 rounded-full flex items-center justify-center">
+                                            <span class="h-2 w-2 bg-green-400 rounded-full"></span>
                                         </span>
+                                        @else
+                                        <span class="h-4 w-4 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <span class="h-2 w-2 bg-blue-400 rounded-full"></span>
+                                        </span>
+                                        @endif
+
                                         <span class="block">
                                             <h2 class="text-sm font-bold leading-5">
                                                 {{ $incomingRequest->tenant->name }}
@@ -71,14 +78,18 @@
                                         <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg>
+                                        @if ($incomingRequest->user)
+                                        <span>{{ $incomingRequest->user->name }}</span>
+                                        @else
                                         <span>Not Claimed</span>
+                                        @endif
                                     </p>
                                     <p class="flex text-gray-500 text-sm leading-5 space-x-2">
                                         <span class="flex space-x-1">
                                             <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
-                                            <span>Pending</span>
+                                            <span>{{ Str::title($incomingRequest->type) }}</span>
                                         </span>
                                         <span>&middot;</span>
                                         <span class="flex space-x-1">

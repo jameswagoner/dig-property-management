@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Manage\Staff;
+namespace App\Http\Livewire\Manage\Tenants;
 
 use App\Models\User;
 use Illuminate\View\View;
@@ -10,8 +10,8 @@ class Index extends Component
 {
     public function render(): View
     {
-        return view('livewire.staff.index', [
-            'users' => User::role('staff')->get()
+        return view('livewire.tenants.index', [
+            'users' => User::role('tenant')->get()
         ]);
     }
 }

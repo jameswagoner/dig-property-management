@@ -2,37 +2,35 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
 class WorkOrder extends Model
 {
-    use HasFactory;
-
     protected $guarded = [];
 
-    public function property()
+    public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class);
     }
 
-    public function getTitleAttribute()
+    public function getTitleAttribute(): string
     {
         return Str::title($this->attributes['title']);
     }
 
-    public function getPriorityAttribute()
+    public function getPriorityAttribute(): string
     {
         return ucwords(str_replace('-', ' ', $this->attributes['priority']));
     }
 
-    public function getStatusAttribute()
+    public function getStatusAttribute(): string
     {
         return ucwords(str_replace('-', ' ', $this->attributes['status']));
     }
 
-    public function getStatusColorAttribute()
+    public function getStatusColorAttribute(): string
     {
         return [
             'new' => 'blue',

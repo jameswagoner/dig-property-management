@@ -2,7 +2,7 @@
     <div class="md:flex md:items-center md:justify-between">
         <div class="flex-1 min-w-0">
             <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                Add New Staff Member
+                Add New Tenant
             </h2>
         </div>
     </div>
@@ -43,7 +43,7 @@
                             Phone Number
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <input id="number" wire:model.defer="number" type="tel" class="block max-w-lg w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <input id="number" wire:model.defer="number" type="tel" class="max-w-lg block w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                         </div>
                     </div>
 
@@ -52,16 +52,7 @@
                             Email address
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <input id="email" wire:model.defer="email" type="email" class="block max-w-lg w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                        <label for="password" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                            Password
-                        </label>
-                        <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <input id="password" wire:model.defer="password" type="text" class="block max-w-lg w-full shadow-sm sm:text-sm border-gray-300 rounded-md" readonly>
+                            <input id="email" wire:model.defer="email" type="email" class="max-w-lg block w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                         </div>
                     </div>
 

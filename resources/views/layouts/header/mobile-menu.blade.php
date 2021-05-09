@@ -18,7 +18,7 @@
         <div class="pt-3 pb-2">
             <div class="flex items-center justify-between px-4">
                 <div>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg" alt="Workflow">
+                    <img class="h-8 w-auto" src="{{ asset('images/logo.svg') }}" alt="DIG">
                 </div>
                 <div class="-mr-2">
                     <button @click="open = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
@@ -30,20 +30,20 @@
                 </div>
             </div>
             <div class="mt-3 px-2 space-y-1">
-                <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Dashboard</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Jobs</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Applicants</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Company</a>
+                <a href="{{ route('properties.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Properties</a>
+                <a href="{{ route('manage.tenants') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Tenants</a>
+                <a href="{{ route('work-orders.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Work Orders</a>
+                <a href="{{ route('manage.tenants.communication') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Communication</a>
             </div>
         </div>
         <div class="pt-4 pb-2">
             <div class="flex items-center px-5">
                 <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=256&amp;h=256&amp;q=80" alt="">
+                    <img class="h-10 w-10 rounded-full" src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}&color=7F9CF5&background=EBF4FF" alt="{{ auth()->user()->name }}">
                 </div>
                 <div class="ml-3">
-                    <div class="text-base font-medium text-gray-800">Whitney Francis</div>
-                    <div class="text-sm font-medium text-gray-500">whitney@example.com</div>
+                    <div class="text-base font-medium text-gray-800">{{ auth()->user()->name }}</div>
+                    <div class="text-sm font-medium text-gray-500">{{ auth()->user()->email }}</div>
                 </div>
                 <button class="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     <span class="sr-only">View notifications</span>
@@ -54,8 +54,8 @@
             </div>
             <div class="mt-3 px-2 space-y-1">
                 <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Your Profile</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Settings</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Sign out</a>
+                <a href="{{ route('manage.settings') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Settings</a>
+                <button type="submit" form="logout" class="w-full block rounded-md px-3 py-2 text-base text-left text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Sign out</button>
             </div>
         </div>
     </div>
