@@ -17,8 +17,19 @@
                     <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                     </svg>
+                    <a href="{{ route('properties.show', $unit->property) }}" class="ml-4 text-sm font-medium text-gray-500">
+                        {{ $unit->property->name }}
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="flex items-center">
+                    <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+                    </svg>
                     <span class="ml-4 text-sm font-medium text-gray-500">
-                        {{ $property->name }}
+                        Unit {{ $unit->name }}
                     </span>
                 </div>
             </li>
@@ -29,7 +40,7 @@
         <div class="md:flex md:items-center md:justify-between">
             <div class="flex-1 min-w-0">
                 <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                    {{ $property->name }}
+                    {{ $unit->name }} {{ $unit->property->name }}
                 </h2>
             </div>
             <div class="mt-4 flex md:mt-0 md:ml-4">
@@ -55,13 +66,13 @@
         </div>
     </div>
 
-    <div class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
-        <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+    <div class="mt-8 max-w-3xl mx-auto sm:px-6 lg:max-w-7xl">
+        <div class="space-y-6">
             <section>
                 <div class="bg-white shadow sm:rounded-lg">
                     <div class="px-4 py-5 sm:px-6">
                         <h2 class="text-lg leading-6 font-medium text-gray-900">
-                            {{ $property->full_address }}
+                            Unit Info
                         </h2>
                     </div>
                     <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
@@ -83,40 +94,5 @@
                 </div>
             </section>
         </div>
-
-        <section class="lg:col-start-3 lg:col-span-1">
-            <div class="bg-white shadow sm:rounded-lg">
-                <div class="px-4 py-5 sm:px-6">
-                    <h2 class="text-lg leading-6 font-medium text-gray-900">
-                        Units
-                    </h2>
-                </div>
-
-                <div class="flow-root border-t border-gray-200">
-                    <ul class="divide-y divide-gray-200">
-                        @foreach($property->units as $unit)
-                        <li>
-                            <a href="{{ route('units.show', $unit) }}" class="block hover:bg-gray-50">
-                                <div class="flex items-center justify-between px-4 py-4 sm:px-6">
-                                    <div>
-                                        <p class="text-sm font-medium text-orange-600 truncate">{{ $unit->name }} {{ $property->name }}</p>
-                                        <p class="mt-2 flex items-center text-sm text-gray-500">
-                                            <span class="truncate">(tenant name)</span>
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <!-- Heroicon name: solid/chevron-right -->
-                                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </section>
     </div>
 </div>
