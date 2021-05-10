@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIncomingRequestsTable extends Migration
+class CreateMessagesTable extends Migration
 {
     public function up()
     {
