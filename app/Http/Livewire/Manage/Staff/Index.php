@@ -10,7 +10,7 @@ class Index extends Component
 {
     public function render(): View
     {
-        return view('livewire.staff.index', [
+        return view('livewire.manage.staff.index', [
             'users' => User::role('staff')->get()
         ]);
     }

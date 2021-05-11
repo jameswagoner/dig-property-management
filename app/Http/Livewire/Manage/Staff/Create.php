@@ -63,6 +63,6 @@ class Create extends Component
 
     public function render(): View
     {
-        return view('livewire.staff.create');
+        return view('livewire.manage.staff.create');
     }
 }

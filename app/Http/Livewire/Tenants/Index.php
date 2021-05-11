@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Manage\Tenants;
+namespace App\Http\Livewire\Tenants;
 
 use App\Models\User;
 use Illuminate\View\View;
