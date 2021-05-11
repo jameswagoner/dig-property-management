@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
-use App\Http\Livewire\Tenants\Communication as TenantCommunication;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
+use App\Http\Livewire\Tenants\Index as TenantIndex;
+use App\Http\Livewire\Tenants\Communication as TenantCommunication;
+use App\Http\Livewire\Tenants\Create as TenantCreate;
 use App\Http\Livewire\Units\Index as UnitIndex;
 use App\Http\Livewire\Units\Show as UnitShow;
 use App\Http\Livewire\WorkOrders\Index as WorkOrderIndex;
@@ -35,8 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
     Route::get('properties/{property}', PropertyShow::class)  ->name('properties.show');
 
-    Route::view('tenants',              'tenants.index')           ->name('tenants.index');
-    Route::view('tenants/create',       'tenants.create')          ->name('tenants.create');
+    Route::get('tenants',               TenantIndex::class)        ->name('tenants.index');
+    Route::get('tenants/create',        TenantCreate::class)       ->name('tenants.create');
+    Route::get('tenants/{tenant}',       function() {})            ->name('tenants.show');
     Route::get('tenants/communication', TenantCommunication::class)->name('tenants.communication');
 
     Route::get('units',        UnitIndex::class)->name('units.index');
