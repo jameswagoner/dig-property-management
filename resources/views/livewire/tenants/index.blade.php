@@ -36,7 +36,7 @@
                             <div class="flex-1 truncate">
                                 <div class="flex items-center space-x-3">
                                     <h3 class="text-orange-500 text-sm font-medium truncate">
-                                        <a href="#">{{ $tenant->name }}</a>
+                                        <a href="{{ route('tenants.show', $tenant) }}">{{ $tenant->name }}</a>
                                     </h3>
                                 </div>
                                 <p class="mt-1 text-gray-500 text-sm truncate">(unit name)</p>
