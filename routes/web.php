@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
-use App\Http\Livewire\Manage\Payments\Index as PaymentIndex;
 use App\Http\Livewire\Manage\Tenants\Communication as TenantCommunication;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
@@ -51,6 +50,12 @@ Route::prefix('webhooks')->name('webhooks.')->group(function() {
     Route::post('twilio/voice/recording-status', [VoiceController::class, 'recordingStatus'])->name('twilio.voice.recording-status');
 
     Route::post('twilio/sms/incoming', [SmsController::class, 'incoming'])->name('twilio.sms.incoming');
+
+    Route::any('paypal/ipn', function (\Illuminate\Http\Request $request) {
+        \App\Models\Payment::create([
+            'raw' => $request->all()
+        ]);
+    });
 });
 
 require __DIR__.'/auth.php';
