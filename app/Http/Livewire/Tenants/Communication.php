@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Manage\Tenants;
+namespace App\Http\Livewire\Tenants;
 
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -10,6 +10,6 @@ class Communication extends Component
 {
     public function render(): View
     {
-        return view('livewire.manage.tenants.communication');
+        return view('livewire.tenants.communication');
     }
 }

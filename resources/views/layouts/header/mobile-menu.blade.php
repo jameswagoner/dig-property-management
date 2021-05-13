@@ -31,9 +31,10 @@
             </div>
             <div class="mt-3 px-2 space-y-1">
                 <a href="{{ route('properties.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Properties</a>
-                <a href="{{ route('manage.tenants') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Tenants</a>
+                <a href="{{ route('tenants.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Tenants</a>
                 <a href="{{ route('work-orders.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Work Orders</a>
-                <a href="{{ route('manage.tenants.communication') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Communication</a>
+                <a href="{{ route('tenants.communication') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Communication</a>
+                <a href="{{ route('money.payments.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Money</a>
             </div>
         </div>
         <div class="pt-4 pb-2">
