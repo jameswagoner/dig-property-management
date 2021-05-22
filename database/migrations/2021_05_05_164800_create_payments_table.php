@@ -13,10 +13,14 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
-            $table->string('transaction_id')->default('NA');
+            $table->string('source')->nullable();
+            $table->string('source_id')->nullable();
 
             $table->integer('amount')->unsigned();
+            $table->integer('fee')->unsigned()->nullable();
             $table->string('description')->nullable();
+
+            $table->json('raw')->nullable();
 
             $table->timestamps();
         });
