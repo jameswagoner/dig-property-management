@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
@@ -54,11 +55,7 @@ Route::prefix('webhooks')->name('webhooks.')->group(function() {
 
     Route::post('twilio/sms/incoming', [SmsController::class, 'incoming'])->name('twilio.sms.incoming');
 
-    Route::any('paypal/ipn', function (\Illuminate\Http\Request $request) {
-        \App\Models\Payment::create([
-            'raw' => $request->all()
-        ]);
-    });
+    Route::post('paypal/ipn', IpnListenController::class)->name('paypal.ipn');
 });
 
 require __DIR__.'/auth.php';
