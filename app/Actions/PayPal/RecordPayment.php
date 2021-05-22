@@ -4,6 +4,7 @@ namespace App\Actions\PayPal;
 
 use App\Models\Payment;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Mdb\PayPal\Ipn\Message;
 
 class RecordPayment
@@ -20,7 +21,7 @@ class RecordPayment
             'raw' => json_encode($message->getAll()),
         ]);
 
-        if ($user = User::where('email', $message->get('payer_email'))->first()) {
+        if ($user = User::where('email', Str::lower($message->get('payer_email')))->first()) {
             $payment->user()->associate($user);
         }
     }
