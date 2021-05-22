@@ -23,6 +23,7 @@ class RecordPayment
 
         if ($user = User::where('email', Str::lower($message->get('payer_email')))->first()) {
             $payment->user()->associate($user);
+            $payment->saveQuietly();
         }
     }
 }
