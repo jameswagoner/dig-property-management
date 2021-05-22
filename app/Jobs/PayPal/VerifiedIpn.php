@@ -23,6 +23,7 @@ class VerifiedIpn implements ShouldQueue
 
     public function handle(RecordPayment $recordPayment)
     {
-        $recordPayment($this->ipnEvent->getMessage());
+        $message = $this->ipnEvent->getMessage();
+        $recordPayment($message->getAll());
     }
 }
