@@ -15,6 +15,7 @@ class CreatePaymentsTable extends Migration
 
             $table->string('source')->nullable();
             $table->string('source_id')->nullable();
+            $table->string('status')->nullable();
 
             $table->integer('amount')->unsigned();
             $table->integer('fee')->unsigned()->nullable();
