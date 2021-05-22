@@ -15,6 +15,7 @@ class RecordPayment
             'status' => $message->get('payment_status'),
             'amount' => $message->get('mc_gross') * 100,
             'fee' => $message->get('mc_fee') * 100,
+            'description' => $message->get('memo'),
             'raw' => json_encode($message->getAll()),
         ]);
     }
