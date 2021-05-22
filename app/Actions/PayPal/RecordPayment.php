@@ -3,13 +3,14 @@
 namespace App\Actions\PayPal;
 
 use App\Models\Payment;
+use App\Models\User;
 use Mdb\PayPal\Ipn\Message;
 
 class RecordPayment
 {
     public function __invoke(Message $message)
     {
-        Payment::create([
+        $payment = Payment::create([
             'source' => 'paypal',
             'source_id' => $message->get('txn_id'),
             'status' => $message->get('payment_status'),
@@ -18,5 +19,9 @@ class RecordPayment
             'description' => $message->get('memo'),
             'raw' => json_encode($message->getAll()),
         ]);
+
+        if ($user = User::where('email', $message->get('payer_email'))->first()) {
+            $payment->user()->associate($user);
+        }
     }
 }
