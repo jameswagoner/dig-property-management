@@ -11,9 +11,6 @@ class Payment extends Model
     protected $guarded = [];
 
     const COMPLETED = "Completed";
-    const IPN_FAILURE = "FALIURE";
-    const IPN_INVALID = "INVALID";
-    const IPN_VERIFIED = "VERIFIED";
 
     public function user(): BelongsTo
     {
