@@ -9,7 +9,7 @@ class RecordPayment
     public function __invoke($data)
     {
         Payment::create([
-            'ray' => $data
+            'raw' => $data
         ]);
     }
 }
