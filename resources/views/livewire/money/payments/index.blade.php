@@ -38,7 +38,7 @@
             @forelse($payments as $payment)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{ $payment->user->name }}
+                        {{ optional($payment->user)->name }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         {{ $payment->description }}
