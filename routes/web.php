@@ -3,11 +3,11 @@
 use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
+use App\Http\Livewire\Communication as CommunicationIndex;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
 use App\Http\Livewire\Tenants\Index as TenantIndex;
-use App\Http\Livewire\Tenants\Communication as TenantCommunication;
 use App\Http\Livewire\Tenants\Create as TenantCreate;
 use App\Http\Livewire\Tenants\Show as TenantShow;
 use App\Http\Livewire\Units\Index as UnitIndex;
@@ -42,10 +42,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('tenants',               TenantIndex::class)        ->name('tenants.index');
     Route::get('tenants/create',        TenantCreate::class)       ->name('tenants.create');
     Route::get('tenants/{tenant}',      TenantShow::class)         ->name('tenants.show');
-    Route::get('tenants/communication', TenantCommunication::class)->name('tenants.communication');
 
     Route::get('units',        UnitIndex::class)->name('units.index');
     Route::get('units/{unit}', UnitShow::class) ->name('units.show');
+
+    Route::get('communication', CommunicationIndex::class)->name('communication');
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {

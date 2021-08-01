@@ -6,17 +6,6 @@
                     <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                     </svg>
-                    <a href="{{ route('tenants.index') }}" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
-                        Tenants
-                    </a>
-                </div>
-            </li>
-
-            <li>
-                <div class="flex items-center">
-                    <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
-                    </svg>
                     <span aria-current="page" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
                         Communication
                     </span>
@@ -28,7 +17,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="space-y-6 sm:px-6 lg:px-0">
             <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-                Tenant Communication
+                Communication
             </h2>
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                 <div class="bg-white py-6 px-4 sm:p-6">
