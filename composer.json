@@ -17,6 +17,7 @@
         "livewire/livewire": "^2.3",
         "mike182uk/paypal-ipn-listener": "^9.0",
         "omnipay/paypal": "^3.0",
+        "spatie/data-transfer-object": "^3.3",
         "spatie/laravel-permission": "^4.0",
         "spatie/laravel-searchable": "^1.9",
         "spatie/laravel-stripe-webhooks": "^2.5",

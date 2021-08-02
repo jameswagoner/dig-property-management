@@ -2,26 +2,16 @@
 
 namespace App\Http\Controllers\Webhooks\Twilio;
 
-use App\Actions\NotifyManagementAction;
-use App\Actions\Twilio\StoreSmsAction;
 use App\Http\Controllers\Controller;
-use App\Models\Message;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Twilio\Rest\Client;
+use App\Jobs\Twilio\ProcessSms;
+use Twilio\TwiML\MessagingResponse;
 
 class SmsController extends Controller
 {
-    public function incoming(
-        Request $request,
-        StoreSmsAction $storeSmsAction,
-        Client $client
-    ): Response
+    public function incoming(MessagingResponse $response): string
     {
-        $storeSmsAction($request, Message::INBOUND);
+        ProcessSms::dispatch();
 
-        (new NotifyManagementAction)($client, "New inbound text message was recieved", ['+13608314766']);
-
-        return response('200 OK');
+        return $response->asXML();
     }
 }
