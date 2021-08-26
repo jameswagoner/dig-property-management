@@ -4,6 +4,7 @@ use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
 use App\Http\Livewire\Communication as CommunicationIndex;
+use App\Http\Livewire\Money\Expenses\Enter as ExpensesEnter;
 use App\Http\Livewire\Properties\Create as PropertyCreate;
 use App\Http\Livewire\Properties\Index as PropertyIndex;
 use App\Http\Livewire\Properties\Show as PropertyShow;
@@ -30,6 +31,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('money')->name('money.')->group(function() {
         Route::view('payments', 'money.payments.index')->name('payments.index');
+
+        Route::view('expenses', 'money.expenses.index')->name('expenses.index');
+        Route::get('expenses/enter', ExpensesEnter::class)->name('expenses.enter');
     });
 
     Route::get('work-orders',         WorkOrderIndex::class)  ->name('work-orders.index');
