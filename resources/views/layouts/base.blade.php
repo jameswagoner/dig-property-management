@@ -5,6 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body class="antialiased font-sans bg-gray-200 overflow-hidden">
@@ -342,10 +343,8 @@
 
                             <!-- Profile dropdown -->
                             <div
-                                x-data="Components.menu({ open: false })"
-                                x-init="init()"
-                                x-on:keydown.escape.stop="open = false; focusButton()"
-                                x-on:click.away="onClickAway($event)"
+                                x-data="dropdown"
+                                x-on:click.outside="onClickAway($event)"
                                 class="ml-3 relative">
                                 <div>
                                     <button
