@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -40,5 +41,10 @@ class User extends Authenticatable
     public function getNameAttribute(): string
     {
         return "$this->first_name $this->last_name";
+    }
+
+    public function scopeType($type, Builder $query): Builder
+    {
+        return $query->where('type', $type);
     }
 }
