@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontpage');
 
+Route::view('test', 'layouts.base');
+
 Route::middleware(['auth'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 
