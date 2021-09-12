@@ -43,7 +43,7 @@ class User extends Authenticatable
         return "$this->first_name $this->last_name";
     }
 
-    public function scopeType($type, Builder $query): Builder
+    public function scopeType(Builder $query, $type): Builder
     {
         return $query->where('type', $type);
     }
