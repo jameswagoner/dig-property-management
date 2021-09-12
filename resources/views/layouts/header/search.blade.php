@@ -1,4 +1,4 @@
-<form class="w-full flex md:ml-0" action="#" method="GET">
+<form class="w-full flex mb-0 md:ml-0" action="#" method="GET">
     <label for="search-field" class="sr-only">Search</label>
     <div class="relative w-full text-gray-400 focus-within:text-gray-600">
         <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
