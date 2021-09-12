@@ -5229,55 +5229,14 @@ window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"]; //------------
 
 document.addEventListener('alpine:init', function () {
   alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].data('dropdown', function () {
-    var e = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-      open: false
-    };
     return {
-      init: function init() {
-        var _this = this;
-
-        this.items = Array.from(this.$el.querySelectorAll('[role="menuitem"]'));
-        this.$watch("open", function () {
-          _this.open && (_this.activeIndex = -1);
-        });
-      },
-      activeDescendant: null,
-      activeIndex: null,
-      items: null,
-      open: e.open,
-      focusButton: function focusButton() {
-        this.$refs.button.focus();
-      },
+      open: false,
       onButtonClick: function onButtonClick() {
-        var _this2 = this;
-
         this.open = !this.open;
-        this.open && this.$nextTick(function () {
-          _this2.$refs["menu-items"].focus();
-        });
-      },
-      onButtonEnter: function onButtonEnter() {
-        var _this3 = this;
-
-        this.open = !this.open;
-        this.open && (this.activeIndex = 0, this.activeDescendant = this.items[this.activeIndex].id, this.$nextTick(function () {
-          _this3.$refs["menu-items"].focus();
-        }));
-      },
-      onArrowUp: function onArrowUp() {
-        if (!this.open) return this.open = true, this.activeIndex = this.items.length - 1, void (this.activeDescendant = this.items[this.activeIndex].id);
-        0 !== this.activeIndex && (this.activeIndex = -1 === this.activeIndex ? this.items.length - 1 : this.activeIndex - 1, this.activeDescendant = this.items[this.activeIndex].id);
-      },
-      onArrowDown: function onArrowDown() {
-        if (!this.open) return this.open = true, this.activeIndex = 0, void (this.activeDescendant = this.items[this.activeIndex].id);
-        this.activeIndex !== this.items.length - 1 && (this.activeIndex = this.activeIndex + 1, this.activeDescendant = this.items[this.activeIndex].id);
       },
       onClickAway: function onClickAway(e) {
         if (this.open) {
-          var t = ["[contentEditable=true]", "[tabindex]", "a[href]", "area[href]", "button:not([disabled])", "iframe", "input:not([disabled])", "select:not([disabled])", "textarea:not([disabled])"].map(function (e) {
-            return "".concat(e, ":not([tabindex='-1'])");
-          }).join(",");
-          this.open = false, e.target.closest(t) || this.focusButton();
+          this.open = false;
         }
       }
     };
