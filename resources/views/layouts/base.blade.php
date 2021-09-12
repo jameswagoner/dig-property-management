@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title></title>
+    <title>{{ config('app.name') }}{{ $title ? " | $title" : '' }}</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -27,19 +27,10 @@
 
                 <!-- Main Content -->
                 <main class="flex-1 relative pb-8 z-0 overflow-y-auto">
+                    {{ $pageHeader }}
 
-                    <!-- Page header -->
-                    <x-page.profile.header />
-
-                    <!-- Page Content -->
                     <div class="mt-8">
-                        <!-- Section -->
-                        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <h2 class="text-lg leading-6 font-medium text-gray-900">Section Title</h2>
-                            <div class="mt-2">
-                                <!-- Section Content -->
-                            </div>
-                        </div>
+                        {{ $slot }}
                     </div>
                 </main>
             </div>

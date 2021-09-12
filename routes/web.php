@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Manage\TenantController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
@@ -20,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'frontpage');
 
 Route::view('test', 'layouts.base');
+
+Route::get('tenants/show', [TenantController::class, 'show']);
 
 Route::middleware(['auth'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
@@ -47,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('tenants',               TenantIndex::class)        ->name('tenants.index');
     Route::get('tenants/create',        TenantCreate::class)       ->name('tenants.create');
-    Route::get('tenants/{tenant}',      TenantShow::class)         ->name('tenants.show');
+//    Route::get('tenants/{tenant}',      TenantShow::class)         ->name('tenants.show');
 
     Route::get('units',        UnitIndex::class)->name('units.index');
     Route::get('units/{unit}', UnitShow::class) ->name('units.show');
