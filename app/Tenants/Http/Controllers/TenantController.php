@@ -16,6 +16,11 @@ class TenantController extends Controller
             ->with('tenants', $tenants);
     }
 
+    public function create(): View
+    {
+
+    }
+
     public function show(User $tenant): View
     {
         return view('manage.tenants.profile')
