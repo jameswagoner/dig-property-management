@@ -13,8 +13,10 @@ Route::middleware(['auth'])->group(function () {
         Route::view('dashboard', 'dashboard')->name('dashboard');
 
         // region Tenants
-        Route::get('tenants',          [TenantController::class, 'index'])->name('tenants.index');
-        Route::get('tenants/{tenant}', [TenantController::class, 'show']) ->name('tenants.show');
+        Route::get('tenants',               [TenantController::class, 'index']) ->name('tenants.index');
+        Route::get('tenants/create',        [TenantController::class, 'create'])->name('tenants.create');
+        Route::get('tenants/{tenant}',      [TenantController::class, 'show'])  ->name('tenants.show');
+        Route::get('tenants/{tenant}/edit', [TenantController::class, 'edit'])  ->name('tenants.edit');
         // endregion Tenants
     });
 });

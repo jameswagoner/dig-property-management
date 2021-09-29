@@ -18,12 +18,19 @@ class TenantController extends Controller
 
     public function create(): View
     {
-
+        return view('manage.tenants.form')
+            ->with('tenant', User::make());
     }
 
     public function show(User $tenant): View
     {
         return view('manage.tenants.profile')
+            ->with('tenant', $tenant);
+    }
+
+    public function edit(User $tenant): View
+    {
+        return view('manage.tenants.form')
             ->with('tenant', $tenant);
     }
 }
