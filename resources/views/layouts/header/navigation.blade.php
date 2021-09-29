@@ -28,8 +28,8 @@
                     <a href="{{ route('manage.tenants.index') }}"
                         @class([
                             'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md',
-                            'text-steel-100 hover:text-white hover:bg-steel-600' => Route::currentRouteName() !== 'manage.tenants.index',
-                            'bg-steel-800 text-white' => Route::currentRouteName() === 'manage.tenants.index'
+                            'text-steel-100 hover:text-white hover:bg-steel-600' => !Str::contains(Route::currentRouteName(), 'manage.tenants.'),
+                            'bg-steel-800 text-white' => Str::contains(Route::currentRouteName(), 'manage.tenants.')
                         ])
                     >
                         <svg class="mr-4 flex-shrink-0 h-6 w-6 text-steel-200" x-description="Heroicon name: outline/user-group" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
