@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Money\Expenses;
+namespace App\Expenses\Http\Livewire;
 
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
@@ -22,6 +22,6 @@ class Enter extends Component
 
     public function render(): View
     {
-        return view('livewire.money.expenses.enter');
+        return view('livewire.manage.expenses.enter');
     }
 }

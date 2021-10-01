@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Expenses\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Expense extends Model
 {
-    protected $guarded = [];
+    public $guarded = [];
 }

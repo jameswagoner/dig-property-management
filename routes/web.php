@@ -1,5 +1,7 @@
 <?php
 
+use App\Expenses\Http\Livewire\Enter as ExpensesEnter;
+use App\Expenses\Http\Livewire\Table as ExpensesTable;
 use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
@@ -18,6 +20,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('tenants/{tenant}',      [TenantController::class, 'show'])  ->name('tenants.show');
         Route::get('tenants/{tenant}/edit', [TenantController::class, 'edit'])  ->name('tenants.edit');
         // endregion Tenants
+
+        // region Expenses
+        Route::get('expenses', ExpensesTable::class)->name('expenses.index');
+        Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
+        // endregion Expenses
     });
 });
 
