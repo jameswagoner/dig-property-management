@@ -7,14 +7,33 @@ use Livewire\Component;
 
 class Enter extends Component
 {
-    public $date;
-
     public $amount;
+    public $category;
+    public $date;
+    public $description;
+    public $unit_id;
 
-    public function save($continue = false): void
+    public $rules = [
+        'amount' => 'required|numeric',
+        'category' => 'required',
+        'date' => 'required|date_format:m-d-Y',
+        'description' => 'required',
+        'unit_id' => 'sometimes|nullable'
+    ];
+
+    public function saveAndNew(): void
     {
-        if ($continue) {
-            $this->reset();
+        $this->save(true);
+    }
+
+    public function save($new = false): void
+    {
+        $this->validate();
+
+
+
+        if ($new) {
+            $this->redirectRoute('money.expenses.enter');
         } else {
             $this->redirectRoute('money.expenses.index');
         }
