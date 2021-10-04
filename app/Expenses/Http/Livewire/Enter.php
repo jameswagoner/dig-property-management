@@ -2,35 +2,40 @@
 
 namespace App\Expenses\Http\Livewire;
 
+use App\Expenses\Actions\AddExpenseAction;
+use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Arr;
 use Livewire\Component;
 
 class Enter extends Component
 {
     public $amount;
+    public $business_name;
     public $category;
     public $date;
-    public $description;
     public $unit_id;
 
     public $rules = [
         'amount' => 'required|numeric',
+        'business_name' => 'required',
         'category' => 'required',
         'date' => 'required|date_format:m-d-Y',
-        'description' => 'required',
         'unit_id' => 'sometimes|nullable'
     ];
 
-    public function saveAndNew(): void
+    public function saveAndNew(AddExpenseAction $addExpenseAction): void
     {
-        $this->save(true);
+        $this->save($addExpenseAction, true);
     }
 
-    public function save($new = false): void
+    public function save(AddExpenseAction $addExpenseAction, $new = false): void
     {
-        $this->validate();
+        $data = $this->validate();
 
+        Arr::set($data, 'expensed_at', Carbon::parse($this->date));
 
+        $addExpenseAction($data);
 
         if ($new) {
             $this->redirectRoute('money.expenses.enter');

@@ -11,8 +11,7 @@ return new class extends Migration {
             $table->bigIncrements('id');
             $table->foreignId('unit_id')->nullable()->constrained()->nullOnDelete();
 
-            $table->string('type');
-
+            $table->string('category');
             $table->string('business_name');
             $table->integer('amount');
 
