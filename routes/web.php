@@ -1,5 +1,7 @@
 <?php
 
+use App\Communication\Http\Livewire\Converstation as CommunicationConverstation;
+use App\Communication\Http\Livewire\Inbox as CommunicationInbox;
 use App\Expenses\Http\Livewire\Enter as ExpensesEnter;
 use App\Expenses\Http\Livewire\Table as ExpensesTable;
 use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
@@ -14,17 +16,22 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('manage')->name('manage.')->group(function() {
         Route::view('dashboard', 'dashboard')->name('dashboard');
 
+        // region Communication
+        Route::get('communication',        CommunicationInbox::class)        ->name('communication.inbox');
+        Route::get('communication/{user}', CommunicationConverstation::class)->name('communication.conversation');
+        // endregion Communication
+
+        // region Expenses
+        Route::get('expenses', ExpensesTable::class)->name('expenses.index');
+        Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
+        // endregion Expenses
+
         // region Tenants
         Route::get('tenants',               [TenantController::class, 'index']) ->name('tenants.index');
         Route::get('tenants/create',        [TenantController::class, 'create'])->name('tenants.create');
         Route::get('tenants/{tenant}',      [TenantController::class, 'show'])  ->name('tenants.show');
         Route::get('tenants/{tenant}/edit', [TenantController::class, 'edit'])  ->name('tenants.edit');
         // endregion Tenants
-
-        // region Expenses
-        Route::get('expenses', ExpensesTable::class)->name('expenses.index');
-        Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
-        // endregion Expenses
     });
 });
 
