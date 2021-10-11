@@ -5,3 +5,11 @@
 [x-cloak] {
     display: none;
 }
+
+.form-group label {
+    @apply block text-sm font-medium text-gray-900;
+}
+
+.form-group .form-control {
+    @apply mt-1 block w-full border-gray-300 rounded-md shadow-sm text-gray-900 sm:text-sm focus:ring-steel-500 focus:border-steel-500;
+}

@@ -12,8 +12,8 @@ class Unit extends Model
 
     protected $guarded = [];
 
-    public function property(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Property::class);
+        return $this->belongsTo(User::class);
     }
 }

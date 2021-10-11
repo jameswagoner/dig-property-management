@@ -1,56 +1,38 @@
 <?php
 
+use App\Communication\Http\Livewire\Converstation as CommunicationConverstation;
+use App\Communication\Http\Livewire\Inbox as CommunicationInbox;
+use App\Expenses\Http\Livewire\Enter as ExpensesEnter;
+use App\Expenses\Http\Livewire\Table as ExpensesTable;
 use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
-use App\Http\Livewire\Communication as CommunicationIndex;
-use App\Http\Livewire\Money\Expenses\Enter as ExpensesEnter;
-use App\Http\Livewire\Properties\Create as PropertyCreate;
-use App\Http\Livewire\Properties\Index as PropertyIndex;
-use App\Http\Livewire\Properties\Show as PropertyShow;
-use App\Http\Livewire\Tenants\Index as TenantIndex;
-use App\Http\Livewire\Tenants\Create as TenantCreate;
-use App\Http\Livewire\Tenants\Show as TenantShow;
-use App\Http\Livewire\Units\Index as UnitIndex;
-use App\Http\Livewire\Units\Show as UnitShow;
-use App\Http\Livewire\WorkOrders\Index as WorkOrderIndex;
-use App\Http\Livewire\WorkOrders\Pending as WorkOrderPending;
+use App\Tenants\Http\Controllers\TenantController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontpage');
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard');
-
     Route::prefix('manage')->name('manage.')->group(function() {
-        Route::view('settings', 'manage.settings')->name('settings');
+        Route::view('dashboard', 'dashboard')->name('dashboard');
 
-        Route::view('staff',        'manage.staff.index') ->name('staff');
-        Route::view('staff/create', 'manage.staff.create')->name('staff.create');
+        // region Communication
+        Route::get('communication',        CommunicationInbox::class)        ->name('communication.inbox');
+        Route::get('communication/{user}', CommunicationConverstation::class)->name('communication.conversation');
+        // endregion Communication
+
+        // region Expenses
+        Route::get('expenses', ExpensesTable::class)->name('expenses.index');
+        Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
+        // endregion Expenses
+
+        // region Tenants
+        Route::get('tenants',               [TenantController::class, 'index']) ->name('tenants.index');
+        Route::get('tenants/create',        [TenantController::class, 'create'])->name('tenants.create');
+        Route::get('tenants/{tenant}',      [TenantController::class, 'show'])  ->name('tenants.show');
+        Route::get('tenants/{tenant}/edit', [TenantController::class, 'edit'])  ->name('tenants.edit');
+        // endregion Tenants
     });
-
-    Route::prefix('money')->name('money.')->group(function() {
-        Route::view('payments', 'money.payments.index')->name('payments.index');
-
-        Route::view('expenses', 'money.expenses.index')->name('expenses.index');
-        Route::get('expenses/enter', ExpensesEnter::class)->name('expenses.enter');
-    });
-
-    Route::get('work-orders',         WorkOrderIndex::class)  ->name('work-orders.index');
-    Route::get('work-orders/pending', WorkOrderPending::class)->name('work-orders.pending');
-
-    Route::get('properties',            PropertyIndex::class) ->name('properties.index');
-    Route::get('properties/new',        PropertyCreate::class)->name('properties.create');
-    Route::get('properties/{property}', PropertyShow::class)  ->name('properties.show');
-
-    Route::get('tenants',               TenantIndex::class)        ->name('tenants.index');
-    Route::get('tenants/create',        TenantCreate::class)       ->name('tenants.create');
-    Route::get('tenants/{tenant}',      TenantShow::class)         ->name('tenants.show');
-
-    Route::get('units',        UnitIndex::class)->name('units.index');
-    Route::get('units/{unit}', UnitShow::class) ->name('units.show');
-
-    Route::get('communication', CommunicationIndex::class)->name('communication');
 });
 
 Route::prefix('webhooks')->name('webhooks.')->group(function() {

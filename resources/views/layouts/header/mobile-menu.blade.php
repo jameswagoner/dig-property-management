@@ -1,64 +1,132 @@
-<!-- region Mobile Menu button -->
-<button @click="open = !open" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-    <!-- Icon when menu is closed. -->
-    <svg x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'hidden': open, 'block': !open }" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-    <!-- Icon when menu is open. -->
-    <svg x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'hidden': !open, 'block': open }" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-    </svg>
-</button>
-<!-- endregion Mobile Menu button -->
+<div
+    x-show="sidebar"
+    class="fixed inset-0 flex z-40 lg:hidden"
+    x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state."
+    x-ref="dialog"
+    aria-modal="true"
+    style="display: none;">
 
-<!-- region Mobile Menu -->
-<div x-cloak x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="duration-150 ease-in" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="z-20 fixed inset-0 bg-black bg-opacity-25 lg:hidden"></div>
-<div x-cloak x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-150 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="z-30 absolute top-0 right-0 max-w-none w-full p-2 transition transform origin-top lg:hidden">
-    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y divide-gray-200">
-        <div class="pt-3 pb-2">
-            <div class="flex items-center justify-between px-4">
-                <div>
-                    <img class="h-8 w-auto" src="{{ asset('images/logo.svg') }}" alt="DIG">
-                </div>
-                <div class="-mr-2">
-                    <button @click="open = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                        <span class="sr-only">Close menu</span>
-                        <svg class="h-6 w-6" x-description="Heroicon name: x" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="mt-3 px-2 space-y-1">
-                <a href="{{ route('properties.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Properties</a>
-                <a href="{{ route('tenants.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Tenants</a>
-                <a href="{{ route('work-orders.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Work Orders</a>
-                <a href="{{ route('communication') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Communication</a>
-                <a href="{{ route('money.payments.index') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Money</a>
-            </div>
+    <div
+        x-show="sidebar"
+        x-description="Off-canvas menu overlay, show/hide based on off-canvas menu state."
+        x-transition:enter="transition-opacity ease-linear duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-opacity ease-linear duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 bg-gray-600 bg-opacity-75"
+        x-on:click="sidebar = false"
+        aria-hidden="true"
+        style="display: none;">
+    </div>
+
+    <div
+        x-show="sidebar"
+        x-description="Off-canvas menu, show/hide based on off-canvas menu state."
+        x-transition:enter="transition ease-in-out duration-300 transform"
+        x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition ease-in-out duration-300 transform"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="-translate-x-full"
+        class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-steel-700"
+        style="display: none;">
+
+        <div
+            x-show="sidebar"
+            x-description="Close button, show/hide based on off-canvas menu state."
+            x-transition:enter="ease-in-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="ease-in-out duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="absolute top-0 right-0 -mr-12 pt-2"
+            style="display: none;">
+            <button
+                type="button"
+                class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                x-on:click="sidebar = false">
+                <span class="sr-only">Close sidebar</span>
+                <svg class="h-6 w-6 text-white" x-description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
-        <div class="pt-4 pb-2">
-            <div class="flex items-center px-5">
-                <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full" src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}&color=7F9CF5&background=EBF4FF" alt="{{ auth()->user()->name }}">
-                </div>
-                <div class="ml-3">
-                    <div class="text-base font-medium text-gray-800">{{ auth()->user()->name }}</div>
-                    <div class="text-sm font-medium text-gray-500">{{ auth()->user()->email }}</div>
-                </div>
-                <button class="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    <span class="sr-only">View notifications</span>
-                    <svg class="h-6 w-6" x-description="Heroicon name: bell" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+
+        <div class="flex-shrink-0 flex items-center px-4">
+            <img class="h-8 w-auto" src="{{ asset('images/logo-white.svg') }}" alt="DIG logo">
+        </div>
+        <nav class="mt-5 flex-shrink-0 h-full divide-y divide-steel-800 overflow-y-auto" aria-label="Sidebar">
+            <div class="px-2 space-y-1">
+
+                <a href="#"
+                   class="bg-steel-800 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                   x-state:on="Current" x-state:off="Default" aria-current="page"
+                   x-state-description="Current: &quot;bg-steel-800 text-white&quot;, Default: &quot;text-steel-100 hover:text-white hover:bg-steel-600&quot;">
+                    <svg class="mr-4 flex-shrink-0 h-6 w-6 text-steel-200" x-description="Heroicon name: outline/home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                     </svg>
-                </button>
+                    Home
+                </a>
+
+                <a href="#"
+                   class="text-steel-100 hover:text-white hover:bg-steel-600 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                   x-state-description="undefined: &quot;bg-steel-800 text-white&quot;, undefined: &quot;text-steel-100 hover:text-white hover:bg-steel-600&quot;">
+                    <svg class="mr-4 flex-shrink-0 h-6 w-6 text-steel-200" x-description="Heroicon name: outline/clock" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    History
+                </a>
+
             </div>
-            <div class="mt-3 px-2 space-y-1">
-                <a href="#" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Your Profile</a>
-                <a href="{{ route('manage.settings') }}" class="block rounded-md px-3 py-2 text-base text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Settings</a>
-                <button type="submit" form="logout" class="w-full block rounded-md px-3 py-2 text-base text-left text-gray-900 font-medium hover:bg-gray-100 hover:text-gray-800">Sign out</button>
+            <div class="mt-6 pt-6">
+                <div class="px-2 space-y-1">
+
+                    <a href="#"
+                       class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-steel-100 hover:text-white hover:bg-steel-600">
+                        <svg class="mr-4 h-6 w-6 text-steel-200" x-description="Heroicon name: outline/cog"
+                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Settings
+                    </a>
+
+                    <a href="#"
+                       class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-steel-100 hover:text-white hover:bg-steel-600">
+                        <svg class="mr-4 h-6 w-6 text-steel-200"
+                             x-description="Heroicon name: outline/question-mark-circle"
+                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Help
+                    </a>
+
+                    <a href="#"
+                       class="group flex items-center px-2 py-2 text-base font-medium rounded-md text-steel-100 hover:text-white hover:bg-steel-600">
+                        <svg class="mr-4 h-6 w-6 text-steel-200"
+                             x-description="Heroicon name: outline/shield-check"
+                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        Privacy
+                    </a>
+
+                </div>
             </div>
-        </div>
+        </nav>
+    </div>
+
+    <div class="flex-shrink-0 w-14" aria-hidden="true">
+        <!-- Dummy element to force sidebar to shrink to fit close icon -->
     </div>
 </div>
-<!-- endregion Mobile Menu -->
