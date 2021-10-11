@@ -35,7 +35,7 @@ class ProcessSms implements ShouldQueue
                 'number'    => $request->input('From'),
                 'type'      => 'sms',
                 'direction' => Message::INBOUND,
-                'body'      => $request->input('body'),
+                'body'      => $request->input('Body'),
             ]);
 
             $storeSmsAction($messageData);
