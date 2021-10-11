@@ -39,11 +39,11 @@
                                 <ul role="list" class="space-y-8">
                                     @forelse($this->messages as $message)
                                     <li>
-                                        <div {{ Arr::toCssClasses([
+                                        <div class="{{ Arr::toCssClasses([
                                             'flex',
                                             'flex-row-reverse text-right' => $message->direction === $message::OUTBOUND,
                                             'flex-row text-left' => $message->direction === $message::INBOUND
-                                        ]) }}>
+                                        ]) }}">
                                             <div class="flex-shrink-0">
                                                 @if($message->direction === $message::INBOUND)
                                                 <img class="h-10 w-10 rounded-full" src="https://ui-avatars.com/api/?name={{ $user->name }}&color=7F9CF5&background=EBF4FF" alt="">
