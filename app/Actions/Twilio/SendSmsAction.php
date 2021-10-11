@@ -3,23 +3,24 @@
 namespace App\Actions\Twilio;
 
 use App\Actions\NotifyManagementAction;
+use App\Models\Message;
 use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
 
 class SendSmsAction
 {
-    public function __invoke(Client $client, string $message, array $numbers): void
+    /**
+     * @throws TwilioException
+     */
+    public function __invoke(Client $client, Message $message): void
     {
-        foreach ($numbers as $number) {
-            try {
-                $client->messages
-                    ->create($number, [
-                        'from' => config('twilio.number'),
-                        'body' => $message
-                    ]);
-            } catch (TwilioException $e) {
-                (new NotifyManagementAction)($client, "$number message delivery failed", ['+13608314766']);
-            }
-        }
+        $sms = $client->messages
+            ->create($message->number, [
+                'from' => config('twilio.number'),
+                'body' => $message->body
+            ]);
+
+        $message->sid = $sms->sid;
+        $message->save();
     }
 }

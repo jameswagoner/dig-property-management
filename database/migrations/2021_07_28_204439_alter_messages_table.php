@@ -10,6 +10,7 @@ return new class extends Migration {
     {
         Schema::table('messages', function (Blueprint $table) {
             $table->foreignIdFor(User::class, 'user_id')->after('id');
+            $table->renameColumn('text', 'body');
         });
     }
 

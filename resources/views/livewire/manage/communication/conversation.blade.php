@@ -28,17 +28,27 @@
                         <div class="divide-y divide-gray-200">
                             <div class="px-4 py-6 sm:px-6">
                                 <ul role="list" class="space-y-8">
-                                    @forelse($messages as $message)
+                                    @forelse($this->messages as $message)
                                     <li>
-                                        <div class="flex space-x-3">
+                                        <div @class([
+                                            'flex',
+                                            'flex-row-reverse text-right' => $message->direction === $message::OUTBOUND,
+                                            'flex-row text-left' => $message->direction === $message::INBOUND
+                                        ])>
                                             <div class="flex-shrink-0">
+                                                @if($message->direction === $message::INBOUND)
                                                 <img class="h-10 w-10 rounded-full" src="https://ui-avatars.com/api/?name={{ $user->name }}&color=7F9CF5&background=EBF4FF" alt="">
+                                                @endif
+
+                                                @if($message->direction === $message::OUTBOUND)
+                                                    <img class="h-10 w-10 rounded-full" src="{{ asset('images/logo.svg') }}" alt="">
+                                                @endif
                                             </div>
-                                            <div>
-                                                <div class="mt-1 text-sm text-gray-700">
-                                                    <p>{{ $message->text }}</p>
+                                            <div class="mx-3">
+                                                <div class="p-3 bg-blue-100 text-sm text-gray-700 rounded-lg">
+                                                    <p>{{ $message->body }}</p>
                                                 </div>
-                                                <div class="mt-2 text-sm space-x-2">
+                                                <div class="mt-1 text-xs">
                                                     <span class="text-gray-500 font-light">{{ $message->created_at->diffForHumans() }}</span>
                                                 </div>
                                             </div>
@@ -53,9 +63,9 @@
                             <div class="flex items-center justify-between space-x-3">
                                 <div class="form-group flex-1">
                                     <label for="message-input" class="sr-only">Message</label>
-                                    <input wire:model="message" id="message-input" class="form-control" type="text" placeholder="Enter message" style="margin-top: 0" />
+                                    <input wire:model.defer="message" id="message-input" class="form-control" type="text" placeholder="Enter message" style="margin-top: 0" />
                                 </div>
-                                <button wire:click="sendMessage" type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                <button wire:click="send()" type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     Send
                                 </button>
                             </div>

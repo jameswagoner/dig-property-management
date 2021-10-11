@@ -2,27 +2,28 @@
 
 namespace App\Communication\Http\Livewire;
 
-use App\Actions\Twilio\SendSmsAction;
+use App\Communication\Jobs\ProcessOutboundSms;
 use App\DataTransferObjects\MessageData;
 use App\Models\Message;
 use App\Models\User;
 use Exception;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 class Converstation extends Component
 {
+    public string $message = '';
     public $messages;
-    public $message;
-    public $user;
+    public User $user;
 
     public function mount(User $user)
     {
-        $this->messages = $user->messages;
         $this->user = $user;
+        $this->messages = $this->user->messages;
     }
 
-    public function sendMessage(SendSmsAction $sendSmsAction)
+    public function send()
     {
         try {
             $messageData = new MessageData([
@@ -33,7 +34,11 @@ class Converstation extends Component
                 'body'      => $this->message,
             ]);
 
+            ProcessOutboundSms::dispatch($messageData);
 
+            $this->messages = $this->user->messages()->get();
+
+            $this->reset('message');
         } catch (Exception $e) {
 
         }
@@ -42,8 +47,6 @@ class Converstation extends Component
     public function render(): View
     {
         return view('livewire.manage.communication.conversation')
-            ->layout('layouts.base', ['title' => "{$this->user->name} | Conversation"])
-            ->with('messages', $this->messages)
-            ->with('user', $this->user);
+            ->layout('layouts.base', ['title' => "{$this->user->name} | Conversation"]);
     }
 }

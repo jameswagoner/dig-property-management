@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <script src="{{ mix('js/app.js') }}" defer></script>
+
+    @livewireStyles
 </head>
 <body class="antialiased font-sans bg-gray-200 overflow-hidden">
 <div>
@@ -38,5 +40,6 @@
 
     </div>
 </div>
+@livewireScripts
 </body>
 </html>
