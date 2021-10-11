@@ -28,7 +28,7 @@
                 <x-header.topbar />
 
                 <!-- Main Content -->
-                <main class="flex-1 relative pb-8 z-0 overflow-y-auto">
+                <main class="flex-1 relative sm:pb-8 z-0 overflow-y-auto">
                     {{ $pageHeader ?? '' }}
 
                     <div class="mt-8">
