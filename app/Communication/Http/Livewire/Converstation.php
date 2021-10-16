@@ -47,6 +47,6 @@ class Converstation extends Component
     public function render(): View
     {
         return view('livewire.manage.communication.conversation')
-            ->layout('layouts.base', ['title' => "{$this->user->name} | Conversation"]);
+            ->layout('layouts.app', ['title' => "{$this->user->name} | Conversation"]);
     }
 }

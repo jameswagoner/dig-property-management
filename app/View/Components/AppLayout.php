@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class BaseLayout extends Component
+class AppLayout extends Component
 {
     public ?string $title;
 
@@ -15,6 +15,6 @@ class BaseLayout extends Component
 
     public function render()
     {
-        return view('layouts.base');
+        return view('layouts.app');
     }
 }
