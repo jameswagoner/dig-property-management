@@ -13,14 +13,14 @@ class Enter extends Component
     public $amount;
     public $business_name;
     public $category;
-    public $date;
+    public $expensed_at;
     public $unit_id;
 
     public $rules = [
         'amount' => 'required|numeric',
         'business_name' => 'required',
         'category' => 'required',
-        'date' => 'required|date_format:m-d-Y',
+        'expensed_at' => 'required|date_format:Y-m-d',
         'unit_id' => 'sometimes|nullable'
     ];
 
@@ -33,14 +33,14 @@ class Enter extends Component
     {
         $data = $this->validate();
 
-        Arr::set($data, 'expensed_at', Carbon::parse($this->date));
+        Arr::set($data, 'expensed_at', Carbon::parse($this->expensed_at));
 
         $addExpenseAction($data);
 
         if ($new) {
-            $this->redirectRoute('money.expenses.enter');
+            $this->redirectRoute('manage.expenses.enter');
         } else {
-            $this->redirectRoute('money.expenses.index');
+            $this->redirectRoute('manage.expenses.index');
         }
     }
 
