@@ -14,7 +14,7 @@ class Table extends Component
     public function render(): View
     {
         return view('livewire.manage.expenses.table')
-            ->layout('layouts.app', ['title' => 'Expenses'])
+            ->layoutData(['title' => 'Expenses'])
             ->with('expenses', Expense::paginate());
     }
 }

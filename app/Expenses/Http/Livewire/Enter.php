@@ -46,6 +46,7 @@ class Enter extends Component
 
     public function render(): View
     {
-        return view('livewire.manage.expenses.enter');
+        return view('livewire.manage.expenses.enter')
+            ->layoutData(['title' => 'New Expense']);
     }
 }
