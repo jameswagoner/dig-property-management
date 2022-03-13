@@ -65,15 +65,14 @@
                             </div>
                             @error('expensed_at') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
-
-                        <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-                            <button type="button" wire:click="save()" class="rounded-md shadow-sm px-4 py-2 bg-blue-500 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
-                                Save
-                            </button>
-                            <button type="button" wire:click="saveAndNew()" class="rounded-md shadow-sm px-4 py-2 bg-green-500 text-sm font-medium text-white hover:bg-green-600 focus:outline-none">
-                                Save &amp; Add Another
-                            </button>
-                        </div>
+                    </div>
+                    <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
+                        <button type="button" wire:click="save()" class="rounded-md shadow-sm px-4 py-2 bg-blue-500 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
+                            Save
+                        </button>
+                        <button type="button" wire:click="saveAndNew()" class="rounded-md shadow-sm px-4 py-2 bg-green-500 text-sm font-medium text-white hover:bg-green-600 focus:outline-none">
+                            Save &amp; Add Another
+                        </button>
                     </div>
                 </div>
             </div>

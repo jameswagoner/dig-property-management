@@ -6,6 +6,8 @@ use App\Expenses\Actions\AddExpenseAction;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Exists;
 use Livewire\Component;
 
 class Enter extends Component
@@ -16,13 +18,16 @@ class Enter extends Component
     public $expensed_at;
     public $unit_id;
 
-    public $rules = [
-        'amount' => 'required|numeric',
-        'business_name' => 'required',
-        'category' => 'required',
-        'expensed_at' => 'required|date_format:Y-m-d',
-        'unit_id' => 'sometimes|nullable'
-    ];
+    public function rules(): array
+    {
+        return [
+            'amount'        => ['required', 'numeric'],
+            'business_name' => ['required'],
+            'category'      => ['required'],
+            'expensed_at'   => ['required', 'date_format:Y-m-d'],
+            'unit_id'       => ['sometimes', 'nullable', Rule::exists('units')],
+        ];
+    }
 
     public function saveAndNew(AddExpenseAction $addExpenseAction): void
     {
