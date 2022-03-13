@@ -1,50 +1,45 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ config('app.name') }}{{ $title ? " | $title" : '' }}</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <title>{{ config('app.name') }}</title>
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    @livewireStyles
+</head>
+<body class="antialiased font-sans bg-gray-200 overflow-hidden">
+<div>
+    <div style="min-height: 640px;">
 
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <div
+            x-data="{ sidebar: false }"
+            x-on:keydown.window.escape="sidebar = false"
+            class="relative h-screen flex overflow-hidden bg-gray-100">
 
-        @livewireStyles
+            <x-header.mobile-menu />
 
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            <header x-data="{ open: false }" class="relative z-10 bg-white shadow">
-                <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex px-2 lg:px-0">
-                            <x-header.navigation />
-                        </div>
-                        <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
-                            <x-header.search />
-                        </div>
-                        <div class="flex items-center lg:hidden">
-                            <x-header.mobile-menu />
-                        </div>
-                        <div class="hidden lg:ml-4 lg:flex lg:items-center">
-                            <livewire:notifications.bell />
+            <x-header.navigation />
 
-                            <x-header.profile-dropdown />
-                        </div>
+            <!-- Content Pane -->
+            <div class="flex-1 overflow-auto focus:outline-none">
+                <x-header.topbar />
+
+                <!-- Main Content -->
+                <main class="flex-1 relative sm:pb-8 z-0 overflow-y-auto">
+                    {{ $pageHeader ?? '' }}
+
+                    <div class="mt-8">
+                        {{ $slot }}
                     </div>
-                </div>
-
-                {{ $breadcrumbs }}
-            </header>
-
-            <main class="py-10">
-                {{ $slot }}
-            </main>
+                </main>
+            </div>
         </div>
 
-        @livewireScripts
-    </body>
+    </div>
+</div>
+@livewireScripts
+</body>
 </html>

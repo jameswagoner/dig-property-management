@@ -1,4 +1,4 @@
-<x-base-layout title="Profile">
+<x-app-layout title="Profile">
     <x-slot name="pageHeader">
         <x-page.profile.header />
     </x-slot>
@@ -10,4 +10,4 @@
             Profile
         </h2>
     </div>
-</x-base-layout>
+</x-app-layout>

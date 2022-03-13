@@ -10,6 +10,6 @@ class Inbox extends Component
     public function render(): View
     {
         return view('livewire.manage.communication.inbox')
-            ->layout('layouts.base', ['title' => 'Communication']);
+            ->layout('layouts.app', ['title' => 'Communication']);
     }
 }

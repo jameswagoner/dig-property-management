@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         App\Communication\CommunicationServiceProvider::class,
+        App\Expenses\ExpensesServiceProvider::class,
 
         /*
          * Application Service Providers...
