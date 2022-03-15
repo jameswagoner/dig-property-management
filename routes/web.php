@@ -8,6 +8,7 @@ use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
 use App\Tenants\Http\Controllers\TenantController;
+use App\Units\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'frontpage');
@@ -26,11 +27,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
         // endregion Expenses
 
+        // region Units
+        Route::get('units',               [UnitController::class, 'index'])->name('tenants.index');
+        Route::get('units/create',        [UnitController::class, 'create'])->name('tenants.create');
+        Route::get('units/{unit}',        [UnitController::class, 'show'])->name('tenants.show');
+        Route::get('units/{unit}/edit',   [UnitController::class, 'edit'])->name('tenants.edit');
+        // endregion Units
+
         // region Tenants
-        Route::get('tenants',               [TenantController::class, 'index']) ->name('tenants.index');
-        Route::get('tenants/create',        [TenantController::class, 'create'])->name('tenants.create');
-        Route::get('tenants/{tenant}',      [TenantController::class, 'show'])  ->name('tenants.show');
-        Route::get('tenants/{tenant}/edit', [TenantController::class, 'edit'])  ->name('tenants.edit');
+        Route::get('tenants',               [TenantController::class, 'index'])->name('units.index');
+        Route::get('tenants/create',        [UnitController::class, 'create'])->name('units.create');
+        Route::get('tenants/{tenant}',      [UnitController::class, 'show'])->name('units.show');
+        Route::get('tenants/{tenant}/edit', [UnitController::class, 'edit'])->name('units.edit');
         // endregion Tenants
     });
 });
