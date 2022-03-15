@@ -49,8 +49,6 @@ Route::prefix('webhooks')->name('webhooks.')->group(function() {
     Route::post('twilio/voice/recording-status', [VoiceController::class, 'recordingStatus'])->name('twilio.voice.recording-status');
 
     Route::post('twilio/sms/incoming', [SmsController::class, 'incoming'])->name('twilio.sms.incoming');
-
-    Route::post('paypal/ipn', IpnListenController::class)->name('paypal.ipn');
 });
 
 require __DIR__.'/auth.php';

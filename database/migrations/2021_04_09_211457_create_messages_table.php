@@ -5,19 +5,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMessagesTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignIdFor(User::class, 'user_id')->nullable();
             $table->string('sid')->nullable();
 
             $table->string('number')->nullable();
             $table->string('type');
             $table->string('direction')->default('automation');
             $table->string('recording_url')->nullable();
-            $table->text('text')->nullable();
+            $table->text('body')->nullable();
 
             $table->json('payload')->nullable();
 
@@ -32,4 +33,4 @@ class CreateMessagesTable extends Migration
     {
         Schema::dropIfExists('incoming_requests');
     }
-}
+};

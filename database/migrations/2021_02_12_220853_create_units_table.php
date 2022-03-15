@@ -1,16 +1,17 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnitsTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained()->onDelete('set null');
 
             $table->string('name');
             $table->string('address');
@@ -23,4 +24,4 @@ class CreateUnitsTable extends Migration
     {
         Schema::dropIfExists('units');
     }
-}
+};

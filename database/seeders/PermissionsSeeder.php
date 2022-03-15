@@ -21,15 +21,15 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // create permissions
-        Permission::create(['name' => 'edit properties']);
-        Permission::create(['name' => 'delete properties']);
+        Permission::create(['name' => 'edit units']);
+        Permission::create(['name' => 'delete units']);
         Permission::create(['name' => 'edit tenants']);
         Permission::create(['name' => 'delete tenants']);
 
         // create roles and assign existing permissions
         $staffRole = Role::create(['name' => 'staff']);
-        $staffRole->givePermissionTo('edit properties');
-        $staffRole->givePermissionTo('delete properties');
+        $staffRole->givePermissionTo('edit units');
+        $staffRole->givePermissionTo('delete units');
         $staffRole->givePermissionTo('edit tenants');
         $staffRole->givePermissionTo('delete tenants');
 
@@ -38,9 +38,6 @@ class PermissionsSeeder extends Seeder
 
         // create a staff role
         Role::create(['name' => 'staff']);
-
-        // create an admin role
-        Role::create(['name' => 'admin']);
 
         // super admin gets all permissions via Gate::before rule; see AuthServiceProvider
         Role::create(['name' => 'super-admin']);

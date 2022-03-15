@@ -24,5 +24,15 @@ class StaffSeeder extends Seeder
         ]);
 
         $superAdmin->assignRole(['super-admin', 'staff']);
+
+        $rentCollector = User::create([
+            'first_name' => 'Kevin',
+            'last_name' => 'Novak',
+            'email' => 'kevin@deplorablesinvestmentgroup.com',
+            'number' => '+13142204633',
+            'password' => Hash::make('rent collector!'),
+        ]);
+
+        $rentCollector->assignRole(['staff']);
     }
 }
