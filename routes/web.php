@@ -4,7 +4,6 @@ use App\Communication\Http\Livewire\Converstation as CommunicationConverstation;
 use App\Communication\Http\Livewire\Inbox as CommunicationInbox;
 use App\Expenses\Http\Livewire\Enter as ExpensesEnter;
 use App\Expenses\Http\Livewire\Table as ExpensesTable;
-use App\Http\Controllers\Webhooks\PayPal\IpnListenController;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
 use App\Tenants\Http\Controllers\TenantController;
@@ -23,7 +22,7 @@ Route::middleware(['auth'])->group(function () {
         // endregion Communication
 
         // region Expenses
-        Route::get('expenses', ExpensesTable::class)->name('expenses.index');
+        Route::get('expenses',        ExpensesTable::class)->name('expenses.index');
         Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
         // endregion Expenses
 
@@ -35,10 +34,10 @@ Route::middleware(['auth'])->group(function () {
         // endregion Units
 
         // region Tenants
-        Route::get('tenants',               [TenantController::class, 'index'])->name('units.index');
-        Route::get('tenants/create',        [UnitController::class, 'create'])->name('units.create');
-        Route::get('tenants/{tenant}',      [UnitController::class, 'show'])->name('units.show');
-        Route::get('tenants/{tenant}/edit', [UnitController::class, 'edit'])->name('units.edit');
+        Route::get('tenants',               [TenantController::class, 'index'])->name('tenants.index');
+        Route::get('tenants/create',        [UnitController::class, 'create'])->name('tenants.create');
+        Route::get('tenants/{tenant}',      [UnitController::class, 'show'])->name('tenants.show');
+        Route::get('tenants/{tenant}/edit', [UnitController::class, 'edit'])->name('tenants.edit');
         // endregion Tenants
     });
 });
