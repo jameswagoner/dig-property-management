@@ -2,7 +2,7 @@
 
 namespace App\Units\Models;
 
-use App\Expenses\Models\Expense;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,9 +14,9 @@ class Unit extends Model
 
     protected $guarded = [];
 
-    public function expenses(): HasMany
+    public function transactions(): HasMany
     {
-        return $this->hasMany(Expense::class);
+        return $this->hasMany(Transaction::class);
     }
 
     public function user(): BelongsTo
