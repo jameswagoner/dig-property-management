@@ -28,10 +28,10 @@ Route::middleware(['auth'])->group(function () {
         // endregion Expenses
 
         // region Units
-        Route::get('units',               [UnitController::class, 'index'])->name('tenants.index');
-        Route::get('units/create',        [UnitController::class, 'create'])->name('tenants.create');
-        Route::get('units/{unit}',        [UnitController::class, 'show'])->name('tenants.show');
-        Route::get('units/{unit}/edit',   [UnitController::class, 'edit'])->name('tenants.edit');
+        Route::get('units',               [UnitController::class, 'index'])->name('units.index');
+        Route::get('units/create',        [UnitController::class, 'create'])->name('units.create');
+        Route::get('units/{unit}',        [UnitController::class, 'show'])->name('units.show');
+        Route::get('units/{unit}/edit',   [UnitController::class, 'edit'])->name('units.edit');
         // endregion Units
 
         // region Tenants
