@@ -10,14 +10,6 @@
                             </h1>
                         </div>
                     </div>
-                    <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-                        <button type="button" wire:click="save()" class="rounded-md shadow-sm px-4 py-2 bg-blue-500 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
-                            Save
-                        </button>
-                        <button type="button" wire:click="saveAndNew()" class="rounded-md shadow-sm px-4 py-2 bg-green-500 text-sm font-medium text-white hover:bg-green-600 focus:outline-none">
-                            Save &amp; Add Another
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -65,14 +57,22 @@
                             @error('amount') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
-                            <label for="expensed_at" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                            <label for="transacted-at" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                                 Date
                             </label>
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                <input type="text" wire:model="expensed_at" id="expensed_at" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" wire:model="transacted_at" id="transacted-at" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                             </div>
-                            @error('expensed_at') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
+                            @error('transacted_at') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
+                    </div>
+                    <div class="mt-8">
+                        <button type="button" wire:click="save()" class="rounded-md shadow-sm px-4 py-2 bg-blue-500 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
+                            Save
+                        </button>
+                        <button type="button" wire:click="saveAndNew()" class="rounded-md shadow-sm px-4 py-2 bg-green-500 text-sm font-medium text-white hover:bg-green-600 focus:outline-none">
+                            Save &amp; Add Another
+                        </button>
                     </div>
                 </div>
             </div>

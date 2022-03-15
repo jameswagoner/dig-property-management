@@ -17,7 +17,6 @@ class Enter extends Component
     public $transacted_at;
     public $type;
     public $unit_id;
-    public $user_id;
 
     public function rules(): array
     {
@@ -26,9 +25,7 @@ class Enter extends Component
             'business_name' => ['sometimes', 'nullable'],
             'category'      => ['required'],
             'transacted_at' => ['required', 'date_format:Y-m-d'],
-            'type'          => ['required', Rule::in(Transaction::$types)],
-            'unit_id'       => ['sometimes', 'nullable', Rule::exists('units')],
-            'user_id'       => ['sometimes', 'nullable', Rule::exists('users')],
+            'unit_id'       => ['sometimes', 'nullable', Rule::exists('units', 'id')],
         ];
     }
 
@@ -41,7 +38,10 @@ class Enter extends Component
     {
         $data = $this->validate();
 
+        Arr::set($data, 'type', Transaction::TYPE_EXPENSE);
         Arr::set($data, 'transacted_at', Carbon::parse($this->transacted_at));
+
+        Transaction::create($data);
 
         if ($new) {
             $this->redirectRoute('manage.expenses.enter');
