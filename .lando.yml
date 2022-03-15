@@ -1,0 +1,21 @@
+name: dig-property-management
+recipe: laravel
+config:
+  via: nginx
+  php: '8.0'
+  webroot: public
+services:
+  node:
+    type: node
+  database:
+    portforward: 9002
+    creds:
+      database: dig
+    run:
+      - mysql -uroot < /app/scripts/lando-db-setup.sql
+tooling:
+  npm:
+    service: node
+proxy:
+  appserver_nginx:
+    - dig.lndo.site
