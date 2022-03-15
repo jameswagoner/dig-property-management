@@ -36,9 +36,6 @@ class PermissionsSeeder extends Seeder
         // create a tenant role
         Role::create(['name' => 'tenant']);
 
-        // create a staff role
-        Role::create(['name' => 'staff']);
-
         // super admin gets all permissions via Gate::before rule; see AuthServiceProvider
         Role::create(['name' => 'super-admin']);
     }
