@@ -79,7 +79,7 @@
         </div>
 
         <div>
-            {{ $payment->links() }}
+            {{ $payments->links() }}
         </div>
     </div>
 </div>

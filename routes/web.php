@@ -6,6 +6,8 @@ use App\Expenses\Http\Livewire\Enter as ExpensesEnter;
 use App\Expenses\Http\Livewire\Table as ExpensesTable;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
+use App\Payments\Http\Livewire\Enter as PaymentsEnter;
+use App\Payments\Http\Livewire\Table as PaymentsTable;
 use App\Tenants\Http\Controllers\TenantController;
 use App\Units\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +26,11 @@ Route::middleware(['auth'])->group(function () {
         // region Expenses
         Route::get('expenses',        ExpensesTable::class)->name('expenses.index');
         Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
+        // endregion Expenses
+
+        // region Expenses
+        Route::get('payments',        PaymentsTable::class)->name('payments.index');
+        Route::get('payments/create', PaymentsEnter::class)->name('payments.enter');
         // endregion Expenses
 
         // region Units
