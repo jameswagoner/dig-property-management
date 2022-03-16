@@ -34,17 +34,19 @@ Route::middleware(['auth'])->group(function () {
         // endregion Expenses
 
         // region Units
-        Route::get('units',               [UnitController::class, 'index'])->name('units.index');
+        Route::get('units',               [UnitController::class, 'index']) ->name('units.index');
         Route::get('units/create',        [UnitController::class, 'create'])->name('units.create');
-        Route::get('units/{unit}',        [UnitController::class, 'show'])->name('units.show');
-        Route::get('units/{unit}/edit',   [UnitController::class, 'edit'])->name('units.edit');
+        Route::get('units/{unit}',        [UnitController::class, 'show'])  ->name('units.show');
+        Route::get('units/{unit}/edit',   [UnitController::class, 'edit'])  ->name('units.edit');
+        Route::post('units',              [UnitController::class, 'store']) ->name('units.store');
+        Route::post('units/{unit}',       [UnitController::class, 'update'])->name('units.update');
         // endregion Units
 
         // region Tenants
         Route::get('tenants',               [TenantController::class, 'index'])->name('tenants.index');
-        Route::get('tenants/create',        [UnitController::class, 'create'])->name('tenants.create');
-        Route::get('tenants/{tenant}',      [UnitController::class, 'show'])->name('tenants.show');
-        Route::get('tenants/{tenant}/edit', [UnitController::class, 'edit'])->name('tenants.edit');
+        Route::get('tenants/create',        [TenantController::class, 'create'])->name('tenants.create');
+        Route::get('tenants/{tenant}',      [TenantController::class, 'show'])->name('tenants.show');
+        Route::get('tenants/{tenant}/edit', [TenantController::class, 'edit'])->name('tenants.edit');
         // endregion Tenants
     });
 });
