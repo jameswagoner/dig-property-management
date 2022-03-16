@@ -178,6 +178,7 @@ return [
 
         App\Providers\TwilioServiceProvider::class,
         App\Expenses\ExpensesServiceProvider::class,
+        App\Payments\PaymentsServiceProvider::class,
     ],
 
     /*
