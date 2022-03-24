@@ -37,9 +37,9 @@ class UnitController extends Controller
 
     public function show(Unit $unit): View
     {
-        $payments = $unit->transactions()->rent()->latest()->take(5)->get();
-        $expenses = $unit->transactions()->expense()->latest()->take(5)->get();
-        $laborExpenses = $unit->transactions()->labor()->latest()->take(5)->get();
+        $payments = $unit->transactions()->rent()->latest('transacted_at')->take(5)->get();
+        $expenses = $unit->transactions()->expense()->latest('transacted_at')->take(5)->get();
+        $laborExpenses = $unit->transactions()->labor()->latest('transacted_at')->take(5)->get();
 
         return view('manage.units.show')
             ->with('unit', $unit)
