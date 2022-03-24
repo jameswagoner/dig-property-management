@@ -6,6 +6,8 @@ use App\Expenses\Http\Livewire\Enter as ExpensesEnter;
 use App\Expenses\Http\Livewire\Table as ExpensesTable;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
+use App\Labor\Http\Livewire\Enter as LaborEnter;
+use App\Labor\Http\Livewire\Table as LaborTable;
 use App\Payments\Http\Livewire\Enter as PaymentsEnter;
 use App\Payments\Http\Livewire\Table as PaymentsTable;
 use App\Tenants\Http\Controllers\TenantController;
@@ -32,6 +34,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('payments',        PaymentsTable::class)->name('payments.index');
         Route::get('payments/create', PaymentsEnter::class)->name('payments.enter');
         // endregion Expenses
+
+        // region Labor Expenses
+        Route::get('labor',        LaborTable::class)->name('labor.index');
+        Route::get('labor/create', LaborEnter::class)->name('labor.enter');
+        // endregion Labor Expenses
 
         // region Units
         Route::get('units',               [UnitController::class, 'index']) ->name('units.index');
