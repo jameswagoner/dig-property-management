@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Units\Models\Unit;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;

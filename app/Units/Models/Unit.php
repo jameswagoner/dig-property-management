@@ -3,9 +3,11 @@
 namespace App\Units\Models;
 
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Kodeine\Metable\Metable;
 
 class Unit extends Model
@@ -22,5 +24,10 @@ class Unit extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getRentalAmountFormattedAttribute(): string
+    {
+        return number_format($this->getMeta('rental_amount') / 100, 2);
     }
 }
