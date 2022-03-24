@@ -166,6 +166,9 @@
                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Contractor
                             </th>
+                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Description
+                            </th>
                             <th scope="col" class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Amount
                             </th>
@@ -179,6 +182,9 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $labor->user->name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{ $labor->description }}
                                 </td>
                                 <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-900 font-medium">
                                     ${{ $labor->formatted_amount }}
