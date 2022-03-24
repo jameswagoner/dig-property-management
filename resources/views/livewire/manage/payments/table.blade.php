@@ -21,47 +21,45 @@
     </x-slot>
 
     <div class="mt-8">
-        <div class="hidden sm:block">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col mt-2">
-                    <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col mt-2">
+                <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Date
+                            </th>
+                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Unit
+                            </th>
+                            <th scope="col" class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Amount
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                        @forelse($payments as $payment)
                             <tr>
-                                <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Date
-                                </th>
-                                <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Unit
-                                </th>
-                                <th scope="col" class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Amount
-                                </th>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    {{ $payment->transacted_at->toFormattedDateString() }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{ optional($payment->unit)->name ?? 'N/A' }}
+                                </td>
+                                <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-900 font-medium">
+                                    ${{ $payment->formatted_amount }}
+                                </td>
                             </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                            @forelse($payments as $payment)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        {{ $payment->transacted_at->toFormattedDateString() }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ optional($payment->unit)->name ?? 'N/A' }}
-                                    </td>
-                                    <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-900 font-medium">
-                                        ${{ $payment->formatted_amount }}
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500" colspan="5">
-                                        No payments have been recorded
-                                    </td>
-                                </tr>
-                            @endforelse
-                            </tbody>
-                        </table>
-                    </div>
+                        @empty
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500" colspan="5">
+                                    No payments have been recorded
+                                </td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
