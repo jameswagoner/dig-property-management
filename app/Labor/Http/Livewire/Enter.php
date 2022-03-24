@@ -14,14 +14,15 @@ use Livewire\Component;
 class Enter extends Component
 {
     public $amount;
+    public $description;
     public $transacted_at;
-    public $type;
     public $unit_id;
 
     public function rules(): array
     {
         return [
             'amount'        => ['required', 'numeric'],
+            'description'   => ['required'],
             'transacted_at' => ['required', 'date_format:Y-m-d'],
             'unit_id'       => ['sometimes', 'nullable', Rule::exists('units', 'id')],
         ];
