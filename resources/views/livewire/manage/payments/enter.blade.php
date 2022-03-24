@@ -21,31 +21,18 @@
                 <div class="align-middle min-w-full overflow-x-auto bg-white shadow overflow-hidden p-6 sm:rounded-lg">
                     <div class="sm:divide-y divide-gray-200">
                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
-                            <label for="category" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                                Category
-                            </label>
-                            <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                <input type="text" wire:model="category" id="category" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                            </div>
-                            @error('category') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
-                        </div>
-                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
                             <label for="unit-id" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                                 Unit
                             </label>
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                <input type="text" wire:model="unit_id" id="unit-id" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                <select wire:model="unit_id" id="unit-id" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                    <option value="">Select a Unit</option>
+                                    @foreach($this->units as $unit)
+                                    <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             @error('unit_id') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
-                        </div>
-                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
-                            <label for="business-name" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                                Business / Person's Name
-                            </label>
-                            <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                <input type="text" wire:model="business_name" id="business-name" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                            </div>
-                            @error('business_name') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
                             <label for="amount" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">

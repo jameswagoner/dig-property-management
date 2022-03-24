@@ -35,6 +35,11 @@ class Transaction extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function setAmountAttribute($value): void
+    {
+        $this->attributes['amount'] = $value * 100;
+    }
+
     public function getFormattedAmountAttribute(): string
     {
         return number_format($this->attributes['amount'] / 100, 2);
