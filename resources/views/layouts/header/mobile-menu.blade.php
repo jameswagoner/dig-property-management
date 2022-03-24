@@ -88,16 +88,42 @@
                 </a>
 
                 <a href="{{ route('manage.expenses.index') }}"
-                    class="{{ Arr::toCssClasses([
-                        'group flex items-center px-2 py-2 text-base font-medium rounded-md',
-                        'text-steel-100 hover:text-white hover:bg-steel-600' => !Str::contains(Route::currentRouteName(), 'manage.expenses.'),
-                        'bg-steel-800 text-white' => Str::contains(Route::currentRouteName(), 'manage.expenses.')
-                    ]) }}"
+                   class="{{ Arr::toCssClasses([
+                            'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md',
+                            'text-steel-100 hover:text-white hover:bg-steel-600' => !Str::contains(Route::currentRouteName(), 'manage.expenses.'),
+                            'bg-steel-800 text-white' => Str::contains(Route::currentRouteName(), 'manage.expenses.')
+                        ]) }}"
                 >
                     <svg class="mr-4 flex-shrink-0 h-6 w-6 text-steel-200" x-description="Heroicon name: outline/credit-card" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                     </svg>
                     Expenses
+                </a>
+
+                <a href="{{ route('manage.labor.index') }}"
+                   class="{{ Arr::toCssClasses([
+                            'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md',
+                            'text-steel-100 hover:text-white hover:bg-steel-600' => !Str::contains(Route::currentRouteName(), 'manage.labor.'),
+                            'bg-steel-800 text-white' => Str::contains(Route::currentRouteName(), 'manage.labor.')
+                        ]) }}"
+                >
+                    <svg class="mr-4 flex-shrink-0 h-6 w-6 text-steel-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                    </svg>
+                    Labor Expenses
+                </a>
+
+                <a href="{{ route('manage.payments.index') }}"
+                   class="{{ Arr::toCssClasses([
+                            'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md',
+                            'text-steel-100 hover:text-white hover:bg-steel-600' => !Str::contains(Route::currentRouteName(), 'manage.payments.'),
+                            'bg-steel-800 text-white' => Str::contains(Route::currentRouteName(), 'manage.payments.')
+                        ]) }}"
+                >
+                    <svg class="mr-4 flex-shrink-0 h-6 w-6 text-steel-200" xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Payments
                 </a>
 
                 <a href="{{ route('manage.tenants.index') }}"
