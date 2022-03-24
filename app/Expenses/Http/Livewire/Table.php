@@ -15,6 +15,6 @@ class Table extends Component
     {
         return view('livewire.manage.expenses.table')
             ->layoutData(['title' => 'Expenses'])
-            ->with('expenses', Transaction::expense()->paginate());
+            ->with('expenses', Transaction::expense()->latest('transacted_at')->paginate());
     }
 }

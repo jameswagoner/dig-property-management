@@ -15,6 +15,6 @@ class Table extends Component
     {
         return view('livewire.manage.payments.table')
             ->layoutData(['title' => 'Rent Payments'])
-            ->with('payments', Transaction::rent()->paginate());
+            ->with('payments', Transaction::rent()->latest('transacted_at')->paginate());
     }
 }

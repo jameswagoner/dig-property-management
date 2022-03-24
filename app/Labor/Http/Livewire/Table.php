@@ -15,6 +15,6 @@ class Table extends Component
     {
         return view('livewire.manage.labor.table')
             ->layoutData(['title' => 'Labor Expenses'])
-            ->with('laborExpenses', Transaction::labor()->paginate());
+            ->with('laborExpenses', Transaction::labor()->latest('transacted_at')->paginate());
     }
 }
