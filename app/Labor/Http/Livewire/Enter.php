@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Expenses\Http\Livewire;
+namespace App\Labor\Http\Livewire;
 
 use App\Models\Transaction;
 use App\Units\Models\Unit;
@@ -14,18 +14,15 @@ use Livewire\Component;
 class Enter extends Component
 {
     public $amount;
-    public $business_name;
-    public $category;
+    public $description;
     public $transacted_at;
-    public $type;
     public $unit_id;
 
     public function rules(): array
     {
         return [
             'amount'        => ['required', 'numeric'],
-            'business_name' => ['sometimes', 'nullable'],
-            'category'      => ['required'],
+            'description'   => ['required'],
             'transacted_at' => ['required', 'date_format:Y-m-d'],
             'unit_id'       => ['sometimes', 'nullable', Rule::exists('units', 'id')],
         ];
@@ -45,21 +42,23 @@ class Enter extends Component
     {
         $data = $this->validate();
 
-        Arr::set($data, 'type', Transaction::TYPE_EXPENSE);
+        Arr::set($data, 'user_id', 13);
+        Arr::set($data, 'type', Transaction::TYPE_LABOR);
+        Arr::set($data, 'category', Transaction::TYPE_LABOR);
         Arr::set($data, 'transacted_at', Carbon::parse($this->transacted_at));
 
         Transaction::create($data);
 
         if ($new) {
-            $this->redirectRoute('manage.expenses.enter');
+            $this->redirectRoute('manage.labor.enter');
         } else {
-            $this->redirectRoute('manage.expenses.index');
+            $this->redirectRoute('manage.labor.index');
         }
     }
 
     public function render(): View
     {
-        return view('livewire.manage.expenses.enter')
-            ->layoutData(['title' => 'New Expense']);
+        return view('livewire.manage.labor.enter')
+            ->layoutData(['title' => 'New Labor Expense']);
     }
 }

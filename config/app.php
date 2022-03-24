@@ -177,6 +177,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\TwilioServiceProvider::class,
+        App\Expenses\ExpensesServiceProvider::class,
+        App\Labor\LaborServiceProvider::class,
+        App\Payments\PaymentsServiceProvider::class,
     ],
 
     /*

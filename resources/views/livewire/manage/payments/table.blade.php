@@ -6,12 +6,12 @@
                     <div class="flex-1 min-w-0">
                         <div class="flex items-center">
                             <h1 class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
-                                Expenses
+                                Rent Payments
                             </h1>
                         </div>
                     </div>
                     <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-                        <a href="{{ route('manage.expenses.enter') }}" class="rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
+                        <a href="{{ route('manage.payments.enter') }}" class="rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
                             Add
                         </a>
                     </div>
@@ -31,12 +31,6 @@
                                 Date
                             </th>
                             <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Category
-                            </th>
-                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Business
-                            </th>
-                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Unit
                             </th>
                             <th scope="col" class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -45,28 +39,22 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                        @forelse($expenses as $expense)
+                        @forelse($payments as $payment)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $expense->transacted_at->toFormattedDateString() }}
+                                    {{ $payment->transacted_at->toFormattedDateString() }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $expense->category }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $expense->business_name }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ optional($expense->unit)->name ?? 'N/A' }}
+                                    {{ optional($payment->unit)->name ?? 'N/A' }}
                                 </td>
                                 <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-900 font-medium">
-                                    ${{ $expense->formatted_amount }}
+                                    ${{ $payment->formatted_amount }}
                                 </td>
                             </tr>
                         @empty
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500" colspan="5">
-                                    No expenses have been recorded
+                                    No payments have been recorded
                                 </td>
                             </tr>
                         @endforelse
@@ -77,7 +65,7 @@
         </div>
 
         <div>
-            {{ $expenses->links() }}
+            {{ $payments->links() }}
         </div>
     </div>
 </div>
