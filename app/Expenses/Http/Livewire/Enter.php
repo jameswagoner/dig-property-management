@@ -3,9 +3,11 @@
 namespace App\Expenses\Http\Livewire;
 
 use App\Models\Transaction;
+use App\Units\Models\Unit;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
@@ -27,6 +29,11 @@ class Enter extends Component
             'transacted_at' => ['required', 'date_format:Y-m-d'],
             'unit_id'       => ['sometimes', 'nullable', Rule::exists('units', 'id')],
         ];
+    }
+
+    public function getUnitsProperty(): Collection
+    {
+        return Unit::all();
     }
 
     public function saveAndNew(): void
