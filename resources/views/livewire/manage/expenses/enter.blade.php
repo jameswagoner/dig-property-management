@@ -65,7 +65,7 @@
                                 Date
                             </label>
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                <input type="text" wire:model="transacted_at" id="transacted-at" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                <input type="date" wire:model="transacted_at" id="transacted-at" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                             </div>
                             @error('transacted_at') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
