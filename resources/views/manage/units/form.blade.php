@@ -31,6 +31,10 @@
                     <input id="address" class="form-control" type="text" name="address" value="{{ $unit->address }}">
                 </div>
                 <div class="form-group">
+                    <label for="due-date">Due Date</label>
+                    <input id="due-date" class="form-control" type="text" name="due_date" value="{{ $unit->due_date }}">
+                </div>
+                <div class="form-group">
                     <label for="rental-amount">Rental Amount</label>
                     <input id="rental-amount" class="form-control" type="text" name="rental_amount" value="{{ $unit->rental_amount_formatted }}">
                 </div>

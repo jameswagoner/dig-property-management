@@ -32,6 +32,7 @@ class UnitController extends Controller
             'rental_amount' => $request->input('rental_amount') * 100,
             'utility_amount' => $request->input('utility_amount') * 100,
             'pet_amount' => $request->input('pet_amount') * 100,
+            'due_date' => $request->input('due_date'),
         ]);
 
         return redirect()->route('manage.units.index');
@@ -63,6 +64,7 @@ class UnitController extends Controller
         $unit->setMeta('rental_amount', $request->input('rental_amount') * 100);
         $unit->setMeta('utility_amount', $request->input('utility_amount') * 100);
         $unit->setMeta('pet_amount', $request->input('pet_amount') * 100);
+        $unit->setMeta('due_date', $request->input('due_date'));
 
         $unit->save();
 
