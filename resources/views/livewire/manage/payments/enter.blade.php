@@ -34,6 +34,28 @@
                             </div>
                             @error('unit_id') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
+                        <div class="py-5">
+                            <label class="text-base font-medium text-gray-700">Category</label>
+                            <fieldset class="mt-4">
+                                <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+                                    <div class="flex items-center">
+                                        <input id="rent" wire:model="category" type="radio" value="Rent Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <label for="rent" class="ml-3 block text-sm font-medium text-gray-700"> Rent </label>
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <input id="utility" wire:model="category" type="radio" value="Utility Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <label for="utility" class="ml-3 block text-sm font-medium text-gray-700"> Utilities </label>
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <input id="pet" wire:model="category" type="radio" value="Pet Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <label for="pet" class="ml-3 block text-sm font-medium text-gray-700"> Pet </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            @error('category') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
+                        </div>
                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
                             <label for="amount" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                                 Amount

@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Kodeine\Metable\Metable;
 
 class Unit extends Model
@@ -29,5 +28,15 @@ class Unit extends Model
     public function getRentalAmountFormattedAttribute(): string
     {
         return number_format($this->getMeta('rental_amount') / 100, 2);
+    }
+
+    public function getUtilityAmountFormattedAttribute(): string
+    {
+        return number_format($this->getMeta('utility_amount') / 100, 2);
+    }
+
+    public function getPetAmountFormattedAttribute(): string
+    {
+        return number_format($this->getMeta('pet_amount') / 100, 2);
     }
 }

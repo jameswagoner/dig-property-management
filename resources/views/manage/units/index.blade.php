@@ -35,6 +35,12 @@
                             <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Rental Amount
                             </th>
+                            <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Utility Amount
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Pet Fee
+                            </th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -57,6 +63,12 @@
                             </td>
                             <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
                                 ${{ $unit->rental_amount_formatted }}
+                            </td>
+                            <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                ${{ $unit->utility_amount_formatted }}
+                            </td>
+                            <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                ${{ $unit->pet_amount_formatted }}
                             </td>
                         </tr>
                         @endforeach
