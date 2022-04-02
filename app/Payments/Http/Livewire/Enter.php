@@ -23,7 +23,7 @@ class Enter extends Component
     {
         return [
             'amount'        => ['required', 'numeric'],
-            'category'        => ['required'],
+            'category'      => ['required'],
             'transacted_at' => ['required', 'date_format:Y-m-d'],
             'unit_id'       => ['sometimes', 'nullable', Rule::exists('units', 'id')],
         ];

@@ -47,6 +47,11 @@
                                         <input id="utility" wire:model="category" type="radio" value="Utility Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
                                         <label for="utility" class="ml-3 block text-sm font-medium text-gray-700"> Utilities </label>
                                     </div>
+
+                                    <div class="flex items-center">
+                                        <input id="pet" wire:model="category" type="radio" value="Pet Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <label for="pet" class="ml-3 block text-sm font-medium text-gray-700"> Pet </label>
+                                    </div>
                                 </div>
                             </fieldset>
                             @error('category') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror

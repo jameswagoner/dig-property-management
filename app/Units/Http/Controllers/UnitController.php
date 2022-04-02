@@ -59,6 +59,7 @@ class UnitController extends Controller
         $unit->name = $request->input('name');
         $unit->address = $request->input('address');
         $unit->setMeta('rental_amount', $request->input('rental_amount') * 100);
+        $unit->setMeta('utility_amount', $request->input('utility_amount') * 100);
 
         $unit->save();
 

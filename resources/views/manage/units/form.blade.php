@@ -34,6 +34,14 @@
                     <label for="rental-amount">Rental Amount</label>
                     <input id="rental-amount" class="form-control" type="text" name="rental_amount" value="{{ $unit->rental_amount_formatted }}">
                 </div>
+                <div class="form-group">
+                    <label for="utility-amount">Utility Amount</label>
+                    <input id="utility-amount" class="form-control" type="text" name="utility_amount" value="{{ $unit->utility_amount_formatted }}">
+                </div>
+                <div class="form-group">
+                    <label for="pet-amount">Pet Amount</label>
+                    <input id="pet-amount" class="form-control" type="text" name="pet_amount" value="{{ $unit->pet_amount_formatted }}">
+                </div>
                 <button type="submit" class="rounded-md shadow-sm px-4 py-2 bg-blue-500 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
                     Save
                 </button>

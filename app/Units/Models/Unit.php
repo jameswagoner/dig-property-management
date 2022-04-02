@@ -25,13 +25,18 @@ class Unit extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function setRentalAmountAttribute($value): void
-    {
-        $this->setMeta('rental_amount', $value * 100);
-    }
-
     public function getRentalAmountFormattedAttribute(): string
     {
         return number_format($this->getMeta('rental_amount') / 100, 2);
+    }
+
+    public function getUtilityAmountFormattedAttribute(): string
+    {
+        return number_format($this->getMeta('utility_amount') / 100, 2);
+    }
+
+    public function getPetAmountFormattedAttribute(): string
+    {
+        return number_format($this->getMeta('pet_amount') / 100, 2);
     }
 }
