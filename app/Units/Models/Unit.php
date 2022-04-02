@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Kodeine\Metable\Metable;
 
 class Unit extends Model
@@ -24,6 +23,11 @@ class Unit extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function setRentalAmountAttribute($value): void
+    {
+        $this->setMeta('rental_amount', $value * 100);
     }
 
     public function getRentalAmountFormattedAttribute(): string

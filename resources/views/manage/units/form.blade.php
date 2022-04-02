@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="rental-amount">Rental Amount</label>
-                    <input id="rental-amount" class="form-control" type="text" name="rental_amount" value="{{ $unit->rental_amount }}">
+                    <input id="rental-amount" class="form-control" type="text" name="rental_amount" value="{{ $unit->rental_amount_formatted }}">
                 </div>
                 <button type="submit" class="rounded-md shadow-sm px-4 py-2 bg-blue-500 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
                     Save
