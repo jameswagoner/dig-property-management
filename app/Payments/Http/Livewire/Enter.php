@@ -39,6 +39,11 @@ class Enter extends Component
         $this->save(true);
     }
 
+    public function cancel(): void
+    {
+        $this->redirect(route('manage.payments.index'));
+    }
+
     public function save($new = false): void
     {
         $data = $this->validate();

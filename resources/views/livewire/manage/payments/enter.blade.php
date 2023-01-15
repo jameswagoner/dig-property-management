@@ -40,12 +40,22 @@
                                 <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
                                     <div class="flex items-center">
                                         <input id="rent" wire:model="category" type="radio" value="Rent Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
-                                        <label for="rent" class="ml-3 block text-sm font-medium text-gray-700"> Rent </label>
+                                        <label for="rent" class="ml-3 block text-sm font-medium text-gray-700"> Rent - Tenant </label>
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <input id="rent" wire:model="category" type="radio" value="NECAC Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <label for="rent" class="ml-3 block text-sm font-medium text-gray-700"> Rent - NECAC </label>
                                     </div>
 
                                     <div class="flex items-center">
                                         <input id="utility" wire:model="category" type="radio" value="Utility Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
                                         <label for="utility" class="ml-3 block text-sm font-medium text-gray-700"> Utilities </label>
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <input id="pet" wire:model="category" type="radio" value="Storage Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <label for="pet" class="ml-3 block text-sm font-medium text-gray-700"> Storage </label>
                                     </div>
 
                                     <div class="flex items-center">
@@ -75,12 +85,15 @@
                             @error('transacted_at') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="mt-8">
+                    <div class="mt-8 flex">
                         <button type="button" wire:click="save()" class="rounded-md shadow-sm px-4 py-2 bg-blue-500 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none">
                             Save
                         </button>
-                        <button type="button" wire:click="saveAndNew()" class="rounded-md shadow-sm px-4 py-2 bg-green-500 text-sm font-medium text-white hover:bg-green-600 focus:outline-none">
+                        <button type="button" wire:click="saveAndNew()" class="ml-4 rounded-md shadow-sm px-4 py-2 bg-green-500 text-sm font-medium text-white hover:bg-green-600 focus:outline-none">
                             Save &amp; Add Another
+                        </button>
+                        <button type="button" wire:click="cancel()" class="ml-auto rounded-md border border-gray-300 text-gray-400 px-4 py-2 text-sm font-medium focus:outline-none">
+                            Cancel
                         </button>
                     </div>
                 </div>

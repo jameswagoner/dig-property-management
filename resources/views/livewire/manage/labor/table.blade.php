@@ -20,58 +20,55 @@
         </div>
     </x-slot>
 
-    <div class="mt-8">
+    <div class="my-8">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col mt-2">
-                <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead>
+            <div class="min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Date
+                        </th>
+                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Unit
+                        </th>
+                        <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Description
+                        </th>
+                        <th scope="col" class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Amount
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                    @forelse($laborExpenses as $labor)
                         <tr>
-                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Date
-                            </th>
-                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Unit
-                            </th>
-                            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Description
-                            </th>
-                            <th scope="col" class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Amount
-                            </th>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {{ $labor->transacted_at->toFormattedDateString() }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {{ $labor->unit->name }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                {{ $labor->description }}
+                            </td>
+                            <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-900 font-medium">
+                                ${{ $labor->formatted_amount }}
+                            </td>
                         </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                        @forelse($laborExpenses as $labor)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $labor->transacted_at->toFormattedDateString() }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $labor->unit->name }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $labor->description }}
-                                </td>
-                                <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-900 font-medium">
-                                    ${{ $labor->formatted_amount }}
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500" colspan="5">
-                                    No labor expenses have been recorded
-                                </td>
-                            </tr>
-                        @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                    @empty
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500" colspan="5">
+                                No labor expenses have been recorded
+                            </td>
+                        </tr>
+                    @endforelse
+                    </tbody>
+                </table>
             </div>
-        </div>
-
-        <div>
-            {{ $laborExpenses->links() }}
+            <div class="mt-4 sm:mt-6 lg:mt-8">
+                {{ $laborExpenses->links() }}
+            </div>
         </div>
     </div>
 </div>
