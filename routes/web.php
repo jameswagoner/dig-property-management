@@ -26,11 +26,6 @@ Route::middleware(['auth'])->group(function () {
         // endregion Communication
 
         // region Expenses
-        Route::get('expenses',        ExpensesTable::class)->name('expenses.index');
-        Route::get('expenses/create', ExpensesEnter::class)->name('expenses.enter');
-        // endregion Expenses
-
-        // region Expenses
         Route::get('payments',        PaymentsTable::class)->name('payments.index');
         Route::get('payments/create', PaymentsEnter::class)->name('payments.enter');
         // endregion Expenses
