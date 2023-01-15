@@ -16,11 +16,9 @@ class Transaction extends Model
     ];
 
     const TYPE_LABOR = 'Labor';
-    const TYPE_EXPENSE = 'Expense';
     const TYPE_RENT = 'Rent Payment';
 
     public static array $types = [
-        self::TYPE_EXPENSE,
         self::TYPE_LABOR,
         self::TYPE_RENT,
     ];
@@ -43,11 +41,6 @@ class Transaction extends Model
     public function getFormattedAmountAttribute(): string
     {
         return number_format($this->attributes['amount'] / 100, 2);
-    }
-
-    public function scopeExpense(Builder $query): Builder
-    {
-        return $query->where('type', self::TYPE_EXPENSE);
     }
 
     public function scopeLabor(Builder $query): Builder
