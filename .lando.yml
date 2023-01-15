@@ -2,7 +2,7 @@ name: dig-property-management
 recipe: laravel
 config:
   via: nginx
-  php: '8.1'
+  php: '8.0'
   webroot: public
 services:
   node:
