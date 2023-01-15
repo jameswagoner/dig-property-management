@@ -2,8 +2,6 @@
 
 use App\Communication\Http\Livewire\Converstation as CommunicationConverstation;
 use App\Communication\Http\Livewire\Inbox as CommunicationInbox;
-use App\Expenses\Http\Livewire\Enter as ExpensesEnter;
-use App\Expenses\Http\Livewire\Table as ExpensesTable;
 use App\Http\Controllers\Webhooks\Twilio\SmsController;
 use App\Http\Controllers\Webhooks\Twilio\VoiceController;
 use App\Labor\Http\Livewire\Enter as LaborEnter;
@@ -25,10 +23,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('communication/{user}', CommunicationConverstation::class)->name('communication.conversation');
         // endregion Communication
 
-        // region Expenses
+        // region Payments
         Route::get('payments',        PaymentsTable::class)->name('payments.index');
         Route::get('payments/create', PaymentsEnter::class)->name('payments.enter');
-        // endregion Expenses
+        // endregion Payments
 
         // region Labor Expenses
         Route::get('labor',        LaborTable::class)->name('labor.index');
