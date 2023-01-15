@@ -26,14 +26,16 @@ class UnitController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        Unit::create([
-            'name' => $request->input('name'),
-            'address' => $request->input('address'),
-            'rental_amount' => $request->input('rental_amount') * 100,
-            'utility_amount' => $request->input('utility_amount') * 100,
-            'pet_amount' => $request->input('pet_amount') * 100,
-            'due_date' => $request->input('due_date'),
-        ]);
+        $unit = new Unit();
+
+        $unit->name = $request->input('name');
+        $unit->address = $request->input('address');
+        $unit->setMeta('rental_amount', $request->input('rental_amount') * 100);
+        $unit->setMeta('utility_amount', $request->input('utility_amount') * 100);
+        $unit->setMeta('pet_amount', $request->input('pet_amount') * 100);
+        $unit->setMeta('due_date', $request->input('due_date'));
+
+        $unit->save();
 
         return redirect()->route('manage.units.index');
     }
