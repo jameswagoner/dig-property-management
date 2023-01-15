@@ -39,27 +39,27 @@
                             <fieldset class="mt-4">
                                 <div class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
                                     <div class="flex items-center">
-                                        <input id="rent" wire:model="category" type="radio" value="Tenant" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <input id="rent" wire:model="category" type="radio" value="Rent Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
                                         <label for="rent" class="ml-3 block text-sm font-medium text-gray-700"> Rent - Tenant </label>
                                     </div>
 
                                     <div class="flex items-center">
-                                        <input id="rent" wire:model="category" type="radio" value="NECAC" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <input id="rent" wire:model="category" type="radio" value="NECAC Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
                                         <label for="rent" class="ml-3 block text-sm font-medium text-gray-700"> Rent - NECAC </label>
                                     </div>
 
                                     <div class="flex items-center">
-                                        <input id="utility" wire:model="category" type="radio" value="Utilities" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <input id="utility" wire:model="category" type="radio" value="Utility Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
                                         <label for="utility" class="ml-3 block text-sm font-medium text-gray-700"> Utilities </label>
                                     </div>
 
                                     <div class="flex items-center">
-                                        <input id="pet" wire:model="category" type="radio" value="Storage" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <input id="pet" wire:model="category" type="radio" value="Storage Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
                                         <label for="pet" class="ml-3 block text-sm font-medium text-gray-700"> Storage </label>
                                     </div>
 
                                     <div class="flex items-center">
-                                        <input id="pet" wire:model="category" type="radio" value="Pet" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
+                                        <input id="pet" wire:model="category" type="radio" value="Pet Payment" class="focus:ring-steel-600 h-4 w-4 text-steel-800 border-gray-300">
                                         <label for="pet" class="ml-3 block text-sm font-medium text-gray-700"> Pet </label>
                                     </div>
                                 </div>
