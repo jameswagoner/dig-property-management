@@ -77,12 +77,21 @@
                         </div>
                         <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
                             <label for="transacted-at" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                                Date
+                                Payment Date
                             </label>
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
                                 <input type="date" wire:model="transacted_at" id="transacted-at" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                             </div>
                             @error('transacted_at') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start py-5">
+                            <label for="description" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                                Notes
+                            </label>
+                            <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                <textarea wire:model="description" id="description" class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"></textarea>
+                            </div>
+                            @error('description') <span class="mt-1 text-sm text-red-600">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="mt-8 flex">

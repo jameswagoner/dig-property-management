@@ -15,6 +15,7 @@ class Enter extends Component
 {
     public $amount;
     public $category;
+    public $description;
     public $transacted_at;
     public $type;
     public $unit_id;
@@ -24,6 +25,7 @@ class Enter extends Component
         return [
             'amount'        => ['required', 'numeric'],
             'category'      => ['required'],
+            'description'   => ['sometimes', 'nullable'],
             'transacted_at' => ['required', 'date_format:Y-m-d'],
             'unit_id'       => ['sometimes', 'nullable', Rule::exists('units', 'id')],
         ];
@@ -50,6 +52,7 @@ class Enter extends Component
 
         Arr::set($data, 'type', Transaction::TYPE_RENT);
         Arr::set($data, 'category', $this->category);
+        Arr::set($data, 'description', $this->description);
         Arr::set($data, 'transacted_at', Carbon::parse($this->transacted_at));
 
         Transaction::create($data);
